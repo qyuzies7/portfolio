@@ -5594,3 +5594,13 @@ body {
     right: 10% !important;
   }
 }
+
+/* =====================================================
+   FINAL — LIGHTNING POSITION BELOW 600px
+   Move lightning slightly to the left only.
+   ===================================================== */
+@media (max-width: 600px) {
+  .lightning-image {
+    right: 12%;
+  }
+}
