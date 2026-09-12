@@ -76,34 +76,6 @@ function Home() {
     return () => window.cancelAnimationFrame(animationFrame);
   }, []);
 
-  useEffect(() => {
-    const sections = [
-      { id: "home", nav: "home" },
-      { id: "project", nav: "project" },
-      { id: "stack", nav: "stack" },
-    ];
-
-    const updateActiveNav = () => {
-      const marker = window.scrollY + window.innerHeight * 0.35;
-      let current = "home";
-
-      sections.forEach(({ id, nav }) => {
-        const section = document.getElementById(id);
-        if (section && section.offsetTop <= marker) current = nav;
-      });
-
-      setActiveNav(current);
-    };
-
-    updateActiveNav();
-    window.addEventListener("scroll", updateActiveNav, { passive: true });
-    window.addEventListener("resize", updateActiveNav);
-
-    return () => {
-      window.removeEventListener("scroll", updateActiveNav);
-      window.removeEventListener("resize", updateActiveNav);
-    };
-  }, []);
 
   const handleNavClick = (id) => {
     setActiveNav(id);

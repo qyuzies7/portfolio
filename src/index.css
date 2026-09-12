@@ -5573,8 +5573,10 @@ body {
 }
 
 @media (min-width: 801px) {
+  /* Desktop uses only .desktop-nav-links.
+     The standalone active label is mobile/tablet only. */
   .navbar > a {
-    display: flex !important;
+    display: none !important;
   }
 }
 
@@ -5596,11 +5598,16 @@ body {
 }
 
 /* =====================================================
-   FINAL — LIGHTNING POSITION BELOW 600px
-   Move lightning slightly to the left only.
+   FINAL — HOME NAV LABEL STAYS VISIBLE ON HOME PAGE
+   The Home page keeps "Home" active while scrolling.
+   Mobile/tablet always shows the Home label beside hamburger.
    ===================================================== */
-@media (max-width: 600px) {
-  .lightning-image {
-    right: 12%;
+@media (max-width: 800px) {
+  .navbar > a.nav-home {
+    display: flex !important;
+  }
+
+  .navbar > a.nav-home::after {
+    display: none !important;
   }
 }
