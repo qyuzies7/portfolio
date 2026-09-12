@@ -1,0 +1,63 @@
+@font-face {
+
+  font-family: "Podium Sharp 1.9";
+
+  src: url("./font/podiumsharp-19.otf") format("opentype");
+
+  font-weight: 100 900;
+
+  font-style: normal;
+
+  font-display: swap;
+
+}
+
+
+.text-type {
+
+  display: inline-block;
+
+  white-space: pre-line;
+  
+  font-family:
+    "Podium Sharp 1.9",
+    "Arial Black",
+    Arial,
+    sans-serif;
+
+}
+
+
+.text-type-cursor {
+
+  display: inline-block;
+
+  margin-left: 5px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 0.75em;
+
+  font-weight: 400;
+
+  animation:
+    cursor-blink 0.7s infinite;
+
+}
+
+
+@keyframes cursor-blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+
+}

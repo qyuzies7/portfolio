@@ -1,0 +1,5596 @@
+@import "@fontsource/geist/600.css";
+
+
+@font-face {
+
+  font-family: "Podium Sharp 1.8";
+
+  src: url("./font/podiumsharp-18.otf") format("opentype");
+
+  font-weight: 100 900;
+
+  font-style: normal;
+
+  font-display: swap;
+
+}
+
+
+@font-face {
+
+  font-family: "Rama Gothic";
+
+  src: url("./font/Rama Gothic M W01 Heavy.ttf") format("truetype");
+
+  font-weight: 900;
+
+  font-style: normal;
+
+  font-display: swap;
+
+}
+
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+
+  --background: #F1EFEA;
+
+  --text: #000000;
+
+  --pattern: rgba(0, 0, 0, 0.08);
+
+  --pattern-star: #000000;
+
+  --navbar: #121212;
+
+  --navbar-text: #929292;
+
+  --navbar-active: #ffffff;
+
+  --navbar-surface: rgba(18, 18, 18, 0.84);
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+
+body {
+
+  margin: 0;
+
+  min-width: 320px;
+
+  background: #ffffff;
+
+}
+
+
+/* =====================================================
+   SITE
+===================================================== */
+
+.site {
+
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  margin: 0;
+
+  overflow: clip;
+
+  background:
+    var(--background);
+
+  color:
+    var(--text);
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+.site.dark {
+
+  --background: #000000;
+
+  --text: #ffffff;
+
+  --pattern:
+    rgba(255,255,255,0.12);
+
+  --pattern-star: #ffffff;
+
+  --navbar: #ffffff;
+
+  --navbar-text: #858585;
+
+  --navbar-active: #000000;
+
+  --navbar-surface: rgba(255, 255, 255, 0.84);
+
+}
+
+
+.site.dark .contact-label {
+
+  border-color: #ffffff;
+
+}
+
+
+/* =====================================================
+   BACKGROUND PATTERN
+===================================================== */
+
+.background-pattern {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 120px,
+      var(--pattern) 121px,
+      transparent 122px,
+      transparent 184px,
+      var(--pattern) 185px,
+      transparent 186px,
+      transparent 601px,
+      var(--pattern) 602px,
+      transparent 603px
+    );
+
+}
+
+
+/* VERTICAL LINE LEFT */
+
+.background-pattern::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 5px;
+
+  bottom: 0;
+
+  left: 7.5%;
+
+  width: 1px;
+
+  background:
+    var(--pattern);
+
+}
+
+
+/* VERTICAL LINE RIGHT */
+
+.background-pattern::after {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  bottom: 0;
+
+  right: 7.5%;
+
+  width: 1px;
+
+  background:
+    var(--pattern);
+
+}
+
+
+/* HORIZONTAL LINES */
+
+.hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  top: -1px;
+
+  height: 1px;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+
+  box-shadow: none;
+
+  z-index: 0;
+
+}
+
+
+/* =====================================================
+   PATTERN STARS
+===================================================== */
+
+.pattern-star {
+
+  position: absolute;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: 10px;
+
+  height: 10px;
+
+  color: var(--pattern-star);
+
+  opacity: 0.7;
+
+  font-size: 12px;
+
+  line-height: 1;
+
+}
+
+
+/* LEFT */
+
+.star-1 {
+
+  left: calc(7.5% - 5px);
+
+  top: 116px;
+
+}
+
+
+.star-2 {
+
+  left: calc(7.5% - 5px);
+
+  top: 180px;
+
+}
+
+
+.star-3 {
+
+  left: calc(7.5% - 5px);
+
+  top: 597px;
+
+}
+
+
+/* RIGHT */
+
+.star-4 {
+
+  right: calc(7.5% - 5px);
+
+  top: 116px;
+
+}
+
+
+.star-5 {
+
+  right: calc(7.5% - 5px);
+
+  top: 180px;
+
+}
+
+
+.star-6 {
+
+  right: calc(7.5% - 5px);
+
+  top: 597px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+  position: fixed;
+
+  z-index: 20;
+
+  top: 26px;
+
+  left: 0;
+
+  right: 0;
+
+  height: 58px;
+
+  pointer-events: none;
+
+}
+
+
+/* =====================================================
+   CONTACT LABEL
+===================================================== */
+
+.contact-label {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 9%;
+
+  width: 160px;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  pointer-events: auto;
+
+  border: 2px solid #000000;
+
+  border-radius: 13px;
+
+  background:
+    color-mix(in srgb, var(--background) 72%, transparent);
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(130%);
+
+  backdrop-filter:
+    blur(12px) saturate(130%);
+
+  color: var(--text);
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+
+}
+
+.contact-label:hover {
+
+  background:
+    color-mix(in srgb, var(--background) 88%, transparent);
+
+  color: var(--text);
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  pointer-events: auto;
+
+  width: 330px;
+
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 26px;
+
+  padding:
+    10px 28px;
+
+  background:
+    var(--navbar-surface);
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(130%);
+
+  backdrop-filter:
+    blur(12px) saturate(130%);
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.16);
+
+  border-radius: 32px;
+
+  box-shadow:
+    0 10px 22px
+    rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* =====================================================
+   NAVBAR TEXT
+===================================================== */
+
+.navbar a {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  height: 18px;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  line-height: 18px;
+
+  letter-spacing: -0.01em;
+
+  color:
+    var(--navbar-text);
+
+  transition:
+    color 0.2s ease;
+
+}
+
+
+.navbar a:hover {
+
+  color:
+    var(--navbar-active);
+
+}
+
+
+.navbar a.active {
+
+  color:
+    var(--navbar-active);
+
+}
+
+
+/* ACTIVE UNDERLINE */
+
+.navbar a.active::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  bottom: -7px;
+
+  height: 2px;
+
+  border-radius: 10px;
+
+  background:
+    currentColor;
+
+}
+
+
+/* =====================================================
+   THEME TOGGLE
+===================================================== */
+
+.theme-toggle {
+
+  --toggle-shift: 32px;
+
+  position: absolute;
+
+  top: 10px;
+
+  right: 9%;
+
+  pointer-events: auto;
+
+  width: 70px;
+
+  height: 38px;
+
+  padding: 4px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  border: none;
+
+  border-radius: 19px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow:
+
+    0px 4px 8px
+    rgba(0, 0, 0, 0.0392);
+
+}
+
+.theme-toggle::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 4px;
+
+  left: 4px;
+
+  width: 30px;
+
+  height: 30px;
+
+  border-radius: 50%;
+
+  background: #121212;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+
+  z-index: 0;
+
+}
+
+
+/* =====================================================
+   THEME CIRCLE
+===================================================== */
+
+.theme-circle {
+
+  position: absolute;
+
+  width: 30px;
+
+  height: 30px;
+
+  min-width: 30px;
+
+  min-height: 30px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 15px;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease;
+
+  z-index: 1;
+
+}
+
+
+/* ICON */
+
+.theme-circle svg {
+
+  width: 18px;
+
+  height: 18px;
+
+}
+
+
+/* LIGHT MODE */
+
+.theme-circle.sun {
+
+  background: transparent;
+
+  color: #ffffff;
+
+  transform:
+    translateX(0);
+
+  left: 4px;
+
+  right: auto;
+
+}
+
+
+/* DARK MODE */
+
+.theme-circle.moon {
+
+  background: transparent;
+
+  color: #929292;
+
+  transform:
+    translateX(var(--toggle-shift));
+
+  left: 4px;
+
+  right: auto;
+
+}
+
+
+.site.dark .theme-circle.sun {
+
+  background: transparent;
+
+  color: #353434;
+
+  transform: none;
+
+}
+
+.site.dark .theme-circle.moon {
+
+  background: transparent;
+
+  color: #ffffff;
+
+  transform:
+    translateX(var(--toggle-shift));
+
+}
+
+.site:not(.dark) .theme-circle.moon,
+.site.dark .theme-circle.sun {
+
+  color: #000000;
+
+}
+
+.site.dark .theme-toggle::before {
+
+  background: #000000;
+
+  transform: translateX(var(--toggle-shift));
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+  position: relative;
+
+  z-index: 1;
+
+  min-height: 790px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding:
+    100px 40px 60px;
+
+}
+
+
+/* =====================================================
+   GREETING
+===================================================== */
+
+.greeting {
+
+  position: absolute;
+
+  z-index: 5;
+
+  top: 169px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  padding:
+    7px 15px;
+
+  border-radius: 999px;
+
+  background:
+    #918F8C;
+
+  color:
+    #333333;
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  font-style: italic;
+
+  line-height: 18px;
+
+  white-space: nowrap;
+
+}
+
+
+.site.dark .greeting {
+
+  background:
+    #918F8C;
+
+  color:
+    #ffffff;
+
+}
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+
+  position: absolute;
+
+  z-index: 4;
+
+  top: 394px;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 1200px;
+
+  max-width: 100%;
+
+  text-align: center;
+
+}
+
+
+/* =====================================================
+   TEXT TYPE
+===================================================== */
+
+.text-type {
+
+  display: inline-block;
+
+  white-space: pre-line;
+
+  font-family:
+    "Rama Gothic",
+    sans-serif;
+
+  font-size: 168px;
+
+  font-weight: normal;
+
+  line-height: 0.95;
+
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+
+  color:
+    var(--text);
+
+}
+
+
+/* =====================================================
+   SCROLL INDICATOR
+===================================================== */
+
+.scroll-indicator {
+
+  position: absolute;
+
+  z-index: 4;
+
+  top: 610px;
+
+  left: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  transform: translateX(-50%);
+
+  color: var(--text);
+
+}
+
+
+.scroll-label {
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.35em;
+
+  line-height: 16px;
+
+}
+
+
+.scroll-line {
+
+  position: relative;
+
+  left: -6px;
+
+  display: block;
+
+  width: 1px;
+
+  height: 38px;
+
+  margin-top: 18px;
+
+  overflow: hidden;
+
+  background: var(--pattern);
+
+}
+
+
+.scroll-line::after {
+
+  content: "";
+
+  position: absolute;
+
+  top: -100%;
+
+  left: 0;
+
+  width: 1px;
+
+  height: 50%;
+
+  background: var(--text);
+
+  animation: scroll-line-glow 1.8s ease-in-out infinite;
+
+}
+
+
+@keyframes scroll-line-glow {
+
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(300%);
+    opacity: 0;
+  }
+
+}
+
+
+/* =====================================================
+   BINTANG
+===================================================== */
+
+.star-image {
+
+  position: absolute;
+
+  z-index: 3;
+
+  width: 180px;
+
+  height: 180px;
+
+  object-fit: contain;
+
+  left: 16%;
+
+  top: 224px;
+
+}
+
+
+/* =====================================================
+   PETIR
+===================================================== */
+
+.lightning-image {
+
+  position: absolute;
+
+  z-index: 3;
+
+  width: 244px;
+
+  height: 244px;
+
+  object-fit: contain;
+
+  right: 13%;
+
+  top: 386px;
+
+}
+
+
+/* =====================================================
+   OTHER SECTION
+===================================================== */
+
+.content-section {
+
+  position: relative;
+
+  z-index: 2;
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  width:
+    min(900px, 88%);
+
+  margin:
+    0 auto;
+
+  padding:
+    110px 0;
+
+  display: grid;
+
+  grid-template-columns:
+    70px 1fr;
+
+  gap:
+    30px;
+
+}
+
+
+.about-section {
+
+  position: relative;
+
+  display: block;
+
+  width: 85%;
+
+  padding-top: 22px;
+
+  padding-bottom: 110px;
+
+}
+
+
+.stack-section {
+
+  position: relative;
+
+  display: block;
+
+  width: 85%;
+
+  padding-top: 10px;
+
+  padding-bottom: 26px;
+
+  text-align: center;
+
+}
+
+
+.stack-section::before,
+.stack-section::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  height: 1px;
+
+  background: var(--pattern);
+
+}
+
+
+.stack-section::before {
+
+  top: 0;
+
+}
+
+
+.stack-section::after {
+
+  bottom: 0;
+
+}
+
+
+.stack-title {
+
+  position: relative;
+
+  margin: 0 0 72px;
+
+  padding: 0 0 24px 18px;
+
+  border-bottom: 1px solid var(--pattern);
+
+  text-align: left;
+
+  font-family: "Rama Gothic", sans-serif;
+
+  font-size: clamp(72px, 9vw, 138px);
+
+  font-weight: 900;
+
+  line-height: 0.9;
+
+  letter-spacing: 0.04em;
+
+  color: var(--text);
+
+}
+
+
+.stack-title::before,
+.stack-title::after {
+
+  content: "✦";
+
+  position: absolute;
+
+  bottom: 0;
+
+  width: 10px;
+
+  height: 10px;
+
+  color: var(--pattern-star);
+
+  font-family: sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1;
+
+}
+
+
+.stack-title::before {
+
+  left: 0;
+
+  transform: translate(-50%, 50%);
+
+}
+
+
+.stack-title::after {
+
+  right: 0;
+
+  transform: translate(50%, 50%);
+
+}
+
+
+.stack-content {
+
+  display: flex;
+
+  justify-content: center;
+
+  text-align: center;
+
+}
+
+
+.stack-content p {
+
+  margin: 0;
+
+  font-family: "Geist", sans-serif;
+
+  font-size: clamp(24px, 3vw, 42px);
+
+  line-height: 1.35;
+
+  color: var(--text);
+
+}
+
+
+.stack-docks {
+
+  width: 100%;
+
+  border-top: 1px solid var(--pattern);
+
+  border-bottom: 1px solid var(--pattern);
+
+}
+
+
+.stack-dock {
+
+  display: grid;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  min-height: 112px;
+
+}
+
+
+.stack-dock + .stack-dock {
+
+  border-top: 1px solid var(--pattern);
+
+}
+
+
+.stack-dock-item {
+
+  position: relative;
+
+  display: flex;
+
+  min-width: 0;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  border-left: 1px solid var(--pattern);
+
+  color: var(--text);
+
+  cursor: default;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+
+}
+
+
+.stack-dock-item:last-child {
+
+  border-right: 1px solid var(--pattern);
+
+}
+
+
+.stack-dock-item:hover {
+
+  z-index: 1;
+
+  background: color-mix(in srgb, var(--background) 78%, var(--text) 8%);
+
+}
+
+
+.stack-dock-icon {
+
+  --stack-icon-size: 32px;
+
+  --stack-icon-scale: 1.5;
+
+  width: 32px;
+
+  height: 32px;
+
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+}
+
+
+.stack-dock-item:hover .stack-dock-icon {
+
+  transform: scale(var(--stack-icon-scale));
+
+}
+
+
+.stack-dock-item span {
+
+  font-family: "Geist", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  opacity: 0.7;
+
+  transition: opacity 0.25s ease;
+
+}
+
+
+.stack-dock-item:hover span {
+
+  opacity: 1;
+
+}
+
+
+.stack-star {
+
+  position: absolute;
+
+  z-index: 1;
+
+  width: 10px;
+
+  height: 10px;
+
+  color: var(--pattern-star);
+
+  font-size: 12px;
+
+  line-height: 1;
+
+  transform: translate(-50%, -50%);
+
+}
+
+
+.stack-star-top-left {
+
+  top: 0;
+
+  left: 0;
+
+}
+
+
+.stack-star-top-right {
+
+  top: 0;
+
+  right: 0;
+
+  transform: translate(50%, -50%);
+
+}
+
+
+.stack-star-bottom-left {
+
+  bottom: 0;
+
+  left: 0;
+
+  transform: translate(-50%, 50%);
+
+}
+
+
+.stack-star-bottom-right {
+
+  right: 0;
+
+  bottom: 0;
+
+  transform: translate(50%, 50%);
+
+}
+
+
+.project-section {
+
+  position: relative;
+
+  display: block;
+
+  width: 85%;
+
+  padding-top: 22px;
+
+  padding-bottom: 26px;
+
+  overflow: hidden;
+
+}
+
+
+.project-heading-row {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding-bottom: 0;
+
+  border-bottom: 1px solid var(--pattern);
+
+}
+
+
+.project-title {
+
+  margin: 0;
+
+  padding: 0 0 24px 18px;
+
+  font-family:
+    "Rama Gothic",
+    sans-serif;
+
+  font-size: clamp(72px, 9vw, 138px);
+
+  font-weight: 900;
+
+  line-height: 0.9;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+.project-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 20px;
+
+  border: none;
+
+  border-radius: 24px;
+
+  background: #000000;
+
+  color: #ffffff;
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transform: translate(-24px, -50px);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+
+}
+
+
+.site:not(.dark) .project-button {
+
+  color: #ffffff;
+
+}
+
+
+.site.dark .project-button {
+
+  background: #ffffff;
+
+  color: #000000;
+
+}
+
+
+.project-content {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 48px 0 32px;
+
+  border-bottom: 1px solid var(--pattern);
+
+}
+
+
+.project-track {
+
+  display: flex;
+
+  width: max-content;
+
+  gap: 0;
+
+  will-change: transform;
+
+}
+
+
+.project-card {
+
+  position: relative;
+
+  flex: 0 0 clamp(360px, 34vw, 540px);
+
+  padding: 0 28px 26px;
+
+  background: transparent;
+
+  cursor: none;
+
+  user-select: none;
+
+}
+
+
+.project-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -48px;
+
+  bottom: -32px;
+
+  left: 0;
+
+  width: 1px;
+
+  background: var(--pattern);
+
+}
+
+
+.project-card img {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scale(1);
+
+  transform-origin: center center;
+
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  pointer-events: none;
+
+}
+
+
+.project-card-media {
+
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background: var(--background);
+
+}
+
+
+.project-card-active .project-card-media img {
+
+  transform: scale(1.05);
+
+}
+
+
+.project-card span {
+
+  position: absolute;
+
+  z-index: 1;
+
+  right: 24px;
+
+  bottom: 20px;
+
+  left: 24px;
+
+  background: transparent;
+
+  color: #000000;
+
+  font-family:
+    "Rama Gothic",
+    sans-serif;
+
+  font-weight: normal;
+
+  font-size: clamp(30px, 3vw, 42px);
+
+  line-height: 0.9;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+.project-view-cursor {
+
+  position: absolute;
+
+  z-index: 3;
+
+  display: grid;
+
+  width: 96px;
+
+  height: 96px;
+
+  place-items: center;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 50%;
+
+  background: rgba(24, 24, 24, 0.48);
+
+  color: #ffffff;
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  -webkit-backdrop-filter: blur(12px);
+
+  backdrop-filter: blur(12px);
+
+}
+
+
+.project-content h3 {
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: clamp(32px, 5vw, 62px);
+
+  line-height: 1;
+
+}
+
+
+.project-content p {
+
+  margin: 0;
+
+  color: #888888;
+
+  line-height: 1.7;
+
+}
+
+
+.project-star {
+
+  position: absolute;
+
+  z-index: 1;
+
+  width: 10px;
+
+  height: 10px;
+
+  color: var(--pattern-star);
+
+  font-size: 12px;
+
+  line-height: 1;
+
+  transform: translate(-50%, -50%);
+
+}
+
+
+.project-star-top-left {
+
+  top: 0;
+
+  left: 0;
+
+}
+
+
+.project-star-top-right {
+
+  top: 0;
+
+  right: 0;
+
+  transform: translate(50%, -50%);
+
+}
+
+
+.project-star-bottom-left {
+
+  bottom: 0;
+
+  left: 0;
+
+  transform: translate(-50%, 50%);
+
+}
+
+
+.project-star-bottom-right {
+
+  right: 0;
+
+  bottom: 0;
+
+  transform: translate(50%, 50%);
+
+}
+
+
+.about-section::before,
+.about-section::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  height: 1px;
+
+  background: var(--pattern);
+
+}
+
+
+.about-section::before {
+
+  top: 0;
+
+}
+
+
+.about-section::after {
+
+  bottom: 0;
+
+}
+
+
+.about-title {
+
+  position: relative;
+
+  margin: 0 0 72px;
+
+  padding:
+    0 0 24px 18px;
+
+  border-bottom: 1px solid var(--pattern);
+
+  text-align: left;
+
+  font-family:
+    "Rama Gothic",
+    sans-serif;
+
+  font-size: clamp(72px, 9vw, 138px);
+
+  font-weight: 900;
+
+  line-height: 0.9;
+
+  letter-spacing: 0.04em;
+
+  color: var(--text);
+
+}
+
+
+.about-title::before,
+.about-title::after {
+
+  content: "✦";
+
+  position: absolute;
+
+  bottom: 0;
+
+  width: 10px;
+
+  height: 10px;
+
+  color: var(--pattern-star);
+
+  font-family: sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1;
+
+  transform: translateY(50%);
+
+}
+
+
+.about-title::before {
+
+  left: 0;
+
+  transform: translate(-50%, 50%);
+
+}
+
+
+.about-title::after {
+
+  right: 0;
+
+  transform: translate(50%, 50%);
+
+}
+
+
+.about-copy {
+
+  margin: 0 0 20px;
+
+  padding-right: 6%;
+
+  text-align: right;
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size:
+    clamp(32px, 5vw, 50px);
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+}
+
+
+.about-section p {
+
+  padding-right: 6%;
+
+  text-align: right;
+
+}
+
+
+.about-star {
+
+  position: absolute;
+
+  z-index: 1;
+
+  width: 10px;
+
+  height: 10px;
+
+  color: var(--pattern-star);
+
+  font-size: 12px;
+
+  line-height: 1;
+
+  transform: translate(-50%, -50%);
+
+}
+
+
+.about-star-top-left {
+
+  top: 0;
+
+  left: 0;
+
+}
+
+
+.about-star-top-right {
+
+  top: 0;
+
+  right: 0;
+
+  transform: translate(50%, -50%);
+
+}
+
+
+.about-star-bottom-left {
+
+  bottom: 0;
+
+  left: 0;
+
+  transform: translate(-50%, 50%);
+
+}
+
+
+.about-star-bottom-right {
+
+  right: 0;
+
+  bottom: 0;
+
+  transform: translate(50%, 50%);
+
+}
+
+
+.section-number {
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: 14px;
+
+  color: #888888;
+
+}
+
+
+.content-section small {
+
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: 12px;
+
+  letter-spacing: 0.15em;
+
+  color: #888888;
+
+}
+
+
+.content-section h2 {
+
+  margin:
+    0 0 20px;
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size:
+    clamp(32px, 5vw, 62px);
+
+  line-height: 1;
+
+  letter-spacing:
+    -0.04em;
+
+}
+
+
+.content-section p {
+
+  margin: 0;
+
+  color: #888888;
+
+  line-height: 1.7;
+
+}
+
+
+.content-section a {
+
+  color:
+    var(--text);
+
+}
+
+
+.contact {
+
+  padding-bottom:
+    160px;
+
+}
+
+
+.flow-section {
+
+  display: block;
+
+  width: 85%;
+
+  padding-top: 22px;
+
+  padding-bottom: 26px;
+
+}
+
+
+.flow-heading-row {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+
+  border-bottom: 1px solid var(--pattern);
+
+}
+
+
+.flow-heading-row::before,
+.flow-heading-row::after {
+
+  content: "✦";
+
+  position: absolute;
+
+  bottom: 0;
+
+  width: 10px;
+
+  height: 10px;
+
+  color: var(--pattern-star);
+
+  font-family: sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1;
+
+}
+
+
+.flow-heading-row::before {
+
+  left: 0;
+
+  transform: translate(-50%, 50%);
+
+}
+
+
+.flow-heading-row::after {
+
+  right: 0;
+
+  transform: translate(50%, 50%);
+
+}
+
+
+.flow-title {
+
+  margin: 0;
+
+  padding-left: 18px;
+
+  color: var(--text);
+
+  font-family:
+    "Rama Gothic",
+    sans-serif;
+
+  font-size: clamp(72px, 9vw, 138px);
+
+  font-weight: 900;
+
+  line-height: 0.9;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+.flow-description {
+
+  max-width: 280px;
+
+  margin: 0;
+
+  padding-bottom: 38px;
+
+  color: var(--text);
+
+  font-family:
+    "Geist",
+    sans-serif;
+
+  font-size: clamp(8px, 0.8vw, 11px);
+
+  line-height: 1.2;
+
+}
+
+
+.flow-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  min-height: 450px;
+
+  border-bottom: 1px solid var(--pattern);
+
+}
+
+
+.flow-step {
+
+  position: relative;
+
+  display: flex;
+
+  min-width: 0;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  padding: 68px 18px 0;
+
+  border-left: 1px solid var(--pattern);
+
+}
+
+
+.flow-step:last-child {
+
+  border-right: 1px solid var(--pattern);
+
+}
+
+
+.flow-step-design {
+
+  padding-top: 142px;
+
+}
+
+
+.flow-step-build {
+
+  padding-top: 222px;
+
+}
+
+
+.flow-step-launch {
+
+  padding-top: 292px;
+
+}
+
+
+.flow-step-content h3 {
+
+  margin: 0 0 12px;
+
+  color: var(--text);
+
+  font-family: "Geist", sans-serif;
+
+  font-size: clamp(18px, 1.7vw, 24px);
+
+  font-weight: 600;
+
+  line-height: 1;
+
+}
+
+
+.flow-step-content p {
+
+  max-width: 210px;
+
+  margin: 0;
+
+  color: color-mix(in srgb, var(--text) 62%, transparent);
+
+  font-family: "Geist", sans-serif;
+
+  font-size: clamp(11px, 1vw, 14px);
+
+  line-height: 1.35;
+
+}
+
+
+.flow-progress {
+
+  margin-top: 56px;
+
+  padding-bottom: 16px;
+
+}
+
+
+.flow-progress span {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--text);
+
+  font-family: "Geist", sans-serif;
+
+  font-size: 11px;
+
+  line-height: 1;
+
+}
+
+
+.flow-progress i {
+
+  display: block;
+
+  height: 6px;
+
+  border-radius: 999px;
+
+  background: var(--text);
+
+}
+
+
+.flow-marquee {
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 26px 0 0;
+
+  white-space: nowrap;
+
+}
+
+
+.flow-marquee-track {
+
+  display: flex;
+
+  width: max-content;
+
+  gap: 0;
+
+  color: var(--text);
+
+  animation: flow-marquee-slide 24s linear infinite;
+
+  will-change: transform;
+
+}
+
+
+.flow-marquee-track span {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0;
+
+  font-family: "Rama Gothic", sans-serif;
+
+  font-size: clamp(42px, 7vw, 104px);
+
+  line-height: 0.85;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+.flow-marquee-track b {
+
+  font-family: sans-serif;
+
+  font-size: 0.5em;
+
+  font-weight: 400;
+
+}
+
+
+@keyframes flow-marquee-slide {
+
+  from {
+
+    transform: translateX(0);
+
+  }
+
+  to {
+
+    transform: translateX(-50%);
+
+  }
+
+}
+
+
+.site-footer {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  padding: 0 7.5%;
+
+  border-top: 1px solid var(--pattern);
+
+  color: var(--text);
+
+}
+
+
+.site-footer-name {
+
+  display: none;
+
+}
+
+
+.site-footer-main {
+
+  display: flex;
+
+  min-height: 340px;
+
+  border-bottom: 1px solid var(--pattern);
+
+}
+
+
+.site-footer-photo-frame {
+
+  width: 80%;
+
+  max-width: 260px;
+
+  height: 250px;
+
+  padding: 7px;
+
+
+}
+
+
+.site-footer-photo {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+}
+
+
+.site-footer-cta {
+
+  display: flex;
+
+  flex: 1;
+
+  min-width: 0;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 40px 0 40px 7%;
+
+  border-right: 1px solid var(--pattern);
+
+}
+
+
+.site-footer-cta .site-footer-links {
+
+  margin-top: 22px;
+
+}
+
+
+.site-footer-cta h2 {
+
+  margin: 0 0 18px;
+
+  font-family: "Rama Gothic", sans-serif;
+
+  font-size: clamp(44px, 6vw, 88px);
+
+  font-weight: 900;
+
+  line-height: 0.86;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+.site-footer-cta p {
+
+  margin: 0 0 28px;
+
+  color: color-mix(in srgb, var(--text) 68%, transparent);
+
+  font-family: "Geist", sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.45;
+
+}
+
+
+.site-footer-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: fit-content;
+
+  min-height: 42px;
+
+  padding: 0 20px;
+
+  border-radius: 24px;
+
+  background: #000000;
+
+  color: #ffffff;
+
+  font-family: "Geist", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: background 0.25s ease, color 0.25s ease;
+
+}
+
+
+.site-footer-button:hover {
+
+  background: #19a9e5;
+
+  color: #ffffff;
+
+}
+
+
+.site.dark .site-footer-button {
+
+  background: #ffffff;
+
+  color: #000000;
+
+}
+
+
+.site-footer-meta {
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  align-items: center;
+
+  gap: 28px;
+
+  min-height: 96px;
+
+  border-right: 1px solid var(--pattern);
+
+}
+
+
+.stack-page {
+
+  position: relative;
+
+  width: 85%;
+
+  margin: 0 auto;
+
+  padding-top: 128px;
+
+  padding-bottom: 90px;
+
+}
+
+
+.stack-page-heading {
+
+  position: relative;
+
+  padding: 36px 0 36px;
+
+  border-bottom: 1px solid var(--pattern);
+
+}
+
+
+.stack-page-heading h1 {
+
+  margin: 0;
+
+  padding-left: 18px;
+
+  font-family: "Rama Gothic", sans-serif;
+
+  font-size: clamp(72px, 9vw, 103px);
+
+  font-weight: 900;
+
+  line-height: 0.9;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+.stack-page-docks {
+
+  border-left: 1px solid var(--pattern);
+
+  border-right: 1px solid var(--pattern);
+
+}
+
+
+.stack-page-docks .stack-dock {
+
+  min-height: 150px;
+
+  border-bottom: 1px solid var(--pattern);
+
+}
+
+
+.stack-page-docks .stack-dock-item {
+
+  border-left: 1px solid var(--pattern);
+
+}
+
+
+.stack-page-docks .stack-dock-item:first-child {
+
+  border-left: none;
+
+}
+
+
+.site-footer-identity {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+}
+
+
+.site-footer-identity strong {
+
+  font-family: "Rama Gothic", sans-serif;
+
+  font-size: 28px;
+
+  line-height: 0.9;
+
+  letter-spacing: 0.04em;
+
+}
+
+
+.site-footer-identity span,
+.site-footer-meta small {
+
+  color: color-mix(in srgb, var(--text) 62%, transparent);
+
+  font-family: "Geist", sans-serif;
+
+  font-size: 11px;
+
+  line-height: 1.3;
+
+}
+
+
+.site-footer-links {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+}
+
+
+.site-footer-links a {
+
+  position: relative;
+
+  color: var(--text);
+
+  line-height: 1;
+
+  text-decoration: none;
+
+}
+
+
+.site-footer-links svg {
+
+  width: 22px;
+
+  height: 22px;
+
+}
+
+
+.site-footer-links a:hover {
+
+  color: #19a9e5;
+
+}
+
+
+/* Mobile-only navigation helpers; desktop layout stays visually identical. */
+.hamburger-button,
+.mobile-nav-menu {
+  display: none;
+}
+
+.desktop-nav-links {
+  display: contents;
+}
+
+.project-button-mobile {
+  display: none;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1200px) {
+
+  .text-type {
+
+    font-size:
+      clamp(70px, 9vw, 118px);
+
+  }
+
+
+  .scroll-indicator {
+
+    top: 555px;
+
+  }
+
+
+  .star-image {
+
+    left: 10%;
+
+  }
+
+
+  .lightning-image {
+
+    right: 7%;
+
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .header {
+
+    top: 24px;
+
+  }
+
+
+  .navbar {
+
+    width:
+      calc(100% - 220px);
+
+    gap: 12px;
+
+    padding:
+      10px 14px;
+
+  }
+
+
+  .navbar a {
+
+    font-size: 11px;
+
+  }
+
+
+  .contact-label {
+
+    top: 5px;
+
+    left: 5%;
+
+    width: 140px;
+
+    height: 44px;
+
+    border-radius: 13px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+  }
+
+
+  .theme-toggle {
+
+    right: 13%;
+
+    width: 64px;
+
+    height: 34px;
+
+  }
+
+
+  .hero {
+
+    min-height: 650px;
+
+  }
+
+
+  .greeting {
+
+    top: 169px;
+
+    font-size: 13px;
+
+  }
+
+
+  .text-type {
+
+    font-size:
+      clamp(
+        48px,
+        11vw,
+        80px
+      );
+
+  }
+
+
+  .star-image {
+
+    width: 100px;
+
+    height: 100px;
+
+    left: 5%;
+
+    top: 238px;
+
+  }
+
+
+  .lightning-image {
+
+    width: 130px;
+
+    height: 130px;
+
+    right: 3%;
+
+    top: 410px;
+
+  }
+
+
+  .content-section {
+
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+
+    padding: 30px 0;
+
+  }
+
+
+  .project-card {
+
+    flex-basis: 68vw;
+
+    padding: 0 20px 22px;
+
+  }
+
+
+  .project-card-media {
+
+    border-radius: 18px;
+
+  }
+
+
+  .flow-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .flow-step,
+  .flow-step-design,
+  .flow-step-build,
+  .flow-step-launch {
+
+    min-height: 220px;
+
+    padding: 36px 14px 0;
+
+    border-right: 1px solid var(--pattern);
+
+  }
+
+
+  .flow-step + .flow-step {
+
+    border-top: 1px solid var(--pattern);
+
+  }
+
+
+  .flow-marquee-track {
+
+    gap: 0;
+
+  }
+
+
+  .flow-marquee-track span {
+
+    gap: 0;
+
+    font-size: 42px;
+
+  }
+
+
+  .flow-heading-row {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+  }
+
+
+  .flow-description {
+
+    max-width: 100%;
+
+    padding-left: 18px;
+
+  }
+
+
+  .site-footer {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    padding: 24px 7.5%;
+
+  }
+
+
+  .site-footer-links {
+
+    flex-wrap: wrap;
+
+    gap: 18px 24px;
+
+  }
+
+
+  .flow-grid {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    min-height: 0;
+
+  }
+
+
+  .flow-step,
+  .flow-step-design,
+  .flow-step-build,
+  .flow-step-launch {
+
+    min-height: 270px;
+
+    padding: 42px 16px 0;
+
+  }
+
+
+  .flow-step:nth-child(2n) {
+
+    border-right: 1px solid var(--pattern);
+
+  }
+
+
+  .flow-step-content p {
+
+    max-width: 240px;
+
+  }
+
+
+  .stack-dock {
+
+    min-height: 96px;
+
+  }
+
+
+  .stack-dock-icon {
+
+    width: 27px;
+
+    height: 27px;
+
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .navbar {
+
+    width:
+      calc(100% - 150px);
+
+    gap: 6px;
+
+    padding:
+      8px 8px;
+
+  }
+
+
+  .navbar a {
+
+    font-size: 9px;
+
+  }
+
+
+  .contact-label {
+
+    top: 4px;
+
+    left: 4%;
+
+    width: 110px;
+
+    height: 40px;
+
+    border-radius: 13px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+  }
+
+
+  .theme-toggle {
+
+    --toggle-shift: 22px;
+
+    width: 54px;
+
+    height: 30px;
+
+  }
+
+
+  .theme-circle {
+
+    width: 24px;
+
+    height: 24px;
+
+    min-width: 24px;
+
+    min-height: 24px;
+
+  }
+
+
+  .theme-circle svg {
+
+    width: 15px;
+
+    height: 15px;
+
+  }
+
+
+  .theme-circle.moon {
+
+    transform: none;
+
+  }
+
+
+  .site.dark .theme-circle.sun {
+
+    transform: none;
+
+  }
+
+
+  .site.dark .theme-circle.moon {
+
+    transform: translateX(var(--toggle-shift));
+
+  }
+
+
+  .text-type {
+
+    font-size:
+      clamp(
+        38px,
+        12vw,
+        60px
+      );
+
+  }
+
+
+  .star-image {
+
+    width: 70px;
+
+    height: 70px;
+
+  }
+
+
+  .lightning-image {
+
+    width: 90px;
+
+    height: 90px;
+
+  }
+
+
+  .project-content {
+
+    padding-top: 34px;
+
+  }
+
+
+  .project-card {
+
+    flex-basis: 78vw;
+
+    padding: 0 14px 18px;
+
+  }
+
+
+  .project-card-media {
+
+    border-radius: 16px;
+
+  }
+
+
+  .stack-dock {
+
+    min-height: 82px;
+
+  }
+
+
+  .stack-dock-item {
+
+    gap: 5px;
+
+  }
+
+
+  .stack-dock-icon {
+
+    width: 22px;
+
+    height: 22px;
+
+  }
+
+
+  .stack-dock-item span {
+
+    font-size: 8px;
+
+  }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE REFINEMENT — 600px TABLET / MOBILE
+   Desktop (including the 1200px reference) remains untouched.
+===================================================== */
+
+@media (min-width: 501px) and (max-width: 800px) {
+  .navbar {
+    width: 286px;
+    height: 52px;
+    gap: 18px;
+    padding: 8px 18px;
+    border-radius: 30px;
+  }
+
+  .navbar a {
+    font-size: 12px;
+  }
+
+  .theme-toggle {
+    right: 8.5%;
+    width: 58px;
+    height: 32px;
+  }
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .star-image {
+    top: 275px;
+    left: 8%;
+  }
+
+  .hero-content {
+    top: 430px;
+  }
+
+  .lightning-image {
+    top: 455px;
+    right: 5%;
+  }
+
+  /* Keep the third horizontal background line as the third line,
+     while moving it upward for the smaller viewport. */
+  .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 548px,
+        var(--pattern) 549px,
+        transparent 550px
+      );
+  }
+
+  .about-section {
+    width: calc(100% - 64px);
+    margin-left: 32px;
+    margin-right: auto;
+  }
+
+  .about-copy,
+  .about-section p {
+    padding-right: 3%;
+    transform: translateX(-12px);
+  }
+
+  .project-button {
+    transform: translate(-16px, -38px);
+  }
+
+  /* Preserve the dock/grid language, but make it two balanced columns
+     so the first/second icon rows have a clear horizontal divider. */
+  .stack-dock {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 0;
+  }
+
+  .stack-dock-item {
+    min-height: 82px;
+    padding: 10px;
+  }
+
+  .stack-dock-item:nth-child(2n) {
+    border-right: 1px solid var(--pattern);
+  }
+
+  .stack-dock-item:nth-child(n + 3) {
+    border-top: 1px solid var(--pattern);
+  }
+
+  .stack-dock + .stack-dock {
+    border-top: 0;
+  }
+
+  .stack-dock-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .stack-dock-item span {
+    font-size: 9px;
+  }
+}
+
+/* =====================================================
+   PROJECTS PAGE
+===================================================== */
+
+.projects-page {
+  position: relative;
+  width: 85%;
+  margin: 0 auto;
+  padding-top: 128px;
+  padding-bottom: 90px;
+}
+
+.projects-page-heading {
+  position: relative;
+  padding: 36px 0 36px;
+  border-bottom: 1px solid var(--pattern);
+}
+
+.projects-page-heading h1 {
+  margin: 0;
+  padding-left: 18px;
+  font-family: "Rama Gothic", sans-serif;
+  font-size: clamp(72px, 9vw, 103px);
+  font-weight: 900;
+  line-height: .9;
+  letter-spacing: .04em;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projects-grid-card {
+  position: relative;
+  display: block;
+  padding: 52px 28px 38px;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--pattern);
+  transition: color .25s ease;
+}
+
+.projects-grid-card:nth-child(odd) {
+  border-right: 1px solid var(--pattern);
+}
+
+.projects-grid-media {
+  width: 88%;
+  aspect-ratio: 16 / 10;
+  max-width: 88%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  border-radius: 20px;
+  background: var(--background);
+}
+
+.projects-grid-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .55s ease;
+}
+
+.projects-grid-card:hover .projects-grid-media img {
+  transform: scale(1.035);
+}
+
+.projects-grid-meta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 22px;
+  padding-right: 64px;
+}
+
+.projects-grid-meta h2 {
+  margin: 0;
+  font-family: "Rama Gothic", sans-serif;
+  font-size: clamp(34px, 4vw, 43px);
+  font-weight: 900;
+  line-height: .9;
+  letter-spacing: .02em;
+  transition: color .25s ease;
+}
+
+.projects-grid-meta > span:not(.projects-arrow) {
+  font-family: "Geist", sans-serif;
+  font-size: 20px;
+}
+
+.projects-grid-meta p {
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-size: 16px;
+  color: color-mix(in srgb, var(--text) 62%, transparent);
+  transition: color .25s ease;
+}
+
+.projects-arrow {
+  position: absolute;
+  right: 0;
+  top: 15px;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  border-radius: 50%;
+  font-family: "Geist", sans-serif;
+  font-size: 26px;
+  color: var(--text);
+  background: color-mix(in srgb, var(--background) 78%, transparent);
+  transition: color .25s ease, background .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.projects-grid-card:hover .projects-grid-meta h2,
+.projects-grid-card:hover .projects-grid-meta p,
+.projects-grid-card:hover .projects-grid-meta > span:not(.projects-arrow) {
+  color: #19a9e5;
+}
+
+.projects-grid-card:hover .projects-arrow {
+  color: #19a9e5;
+  border-color: #19a9e5;
+  transform: translateX(4px);
+}
+
+/* =====================================================
+   PROJECTS + STACK PAGE PATTERN OVERRIDES
+===================================================== */
+
+.projects-site .background-pattern,
+.stack-page-site .background-pattern {
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 120px,
+      var(--pattern) 121px,
+      transparent 122px
+    );
+}
+
+.projects-site .background-pattern .star-2,
+.projects-site .background-pattern .star-3,
+.projects-site .background-pattern .star-5,
+.projects-site .background-pattern .star-6,
+.stack-page-site .background-pattern .star-2,
+.stack-page-site .background-pattern .star-3,
+.stack-page-site .background-pattern .star-5,
+.stack-page-site .background-pattern .star-6 {
+  display: none;
+}
+
+.projects-page-heading::before,
+.projects-page-heading::after,
+.stack-page-heading::before,
+.stack-page-heading::after {
+  content: "✦";
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--pattern-star);
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 10px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.projects-page-heading::before,
+.stack-page-heading::before {
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+
+.projects-page-heading::after,
+.stack-page-heading::after {
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+/* =====================================================
+   PROJECT CARD ACCENT + GLASS ARROW
+===================================================== */
+
+.projects-grid-card:hover .projects-grid-media {
+  border-color: #800000;
+}
+
+.projects-grid-card:hover .projects-grid-meta h2,
+.projects-grid-card:hover .projects-grid-meta p,
+.projects-grid-card:hover .projects-grid-meta > span:not(.projects-arrow) {
+  color: #800000;
+}
+
+.projects-arrow {
+  width: 58px;
+  height: 58px;
+  border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--background) 52%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(135%);
+  backdrop-filter: blur(14px) saturate(135%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.projects-arrow svg {
+  width: 28px;
+  height: 28px;
+}
+
+.projects-grid-card:hover .projects-arrow {
+  color: #800000;
+  border-color: #800000;
+  background: color-mix(in srgb, var(--background) 44%, transparent);
+  transform: translateX(4px);
+}
+
+/* =====================================================
+   RESPONSIVE OVERRIDES — MOBILE / TABLET
+   Desktop styles above remain unchanged.
+===================================================== */
+
+/* Tablet: only adjust the scroll indicator as requested. */
+@media (min-width: 501px) and (max-width: 1024px) {
+  .scroll-indicator {
+    top: 612px;
+    transform: translateX(-50%) scale(0.68);
+    transform-origin: top center;
+  }
+
+  .scroll-line {
+    height: 30px;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Mobile navbar: Home + hamburger only. */
+  .header {
+    top: 18px;
+    height: 52px;
+  }
+
+  .contact-label {
+    display: none;
+  }
+
+  .navbar {
+    width: 132px;
+    height: 48px;
+    left: 50%;
+    gap: 0;
+    padding: 8px 13px;
+    justify-content: space-between;
+    border-radius: 28px;
+  }
+
+  .navbar > .active {
+    display: flex;
+    font-size: 11px;
+    margin-left: 29px;
+  }
+
+  .navbar > .active::after {
+    display: none;
+  }
+
+  .desktop-nav-links {
+    display: none;
+  }
+
+  .hamburger-button {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 0;
+    background: transparent;
+    color: var(--navbar-active);
+    cursor: pointer;
+  }
+
+  .hamburger-button span {
+    display: block;
+    width: 15px;
+    height: 1.5px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .mobile-menu-open .hamburger-button span:nth-child(1) {
+    transform: translateY(5.5px) rotate(45deg);
+  }
+
+  .mobile-menu-open .hamburger-button span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-open .hamburger-button span:nth-child(3) {
+    transform: translateY(-5.5px) rotate(-45deg);
+  }
+
+  .mobile-nav-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 132px;
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 18px;
+    background: var(--navbar-surface);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    backdrop-filter: blur(12px) saturate(130%);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+  }
+
+  .mobile-menu-open .mobile-nav-menu {
+    display: flex;
+  }
+
+  .mobile-nav-menu a {
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: var(--navbar-text);
+    font-size: 10px;
+  }
+
+  .mobile-nav-menu a:hover {
+    background: color-mix(in srgb, var(--background) 75%, transparent);
+    color: var(--navbar-active);
+  }
+
+  /* Toggle sits immediately to the left of the right vertical grid line. */
+  .theme-toggle {
+    --toggle-shift: 22px;
+    right: 9.5%;
+    top: 9px;
+    width: 48px;
+    height: 27px;
+    padding: 3px;
+    border-radius: 15px;
+  }
+
+  .theme-toggle::before {
+    top: 3px;
+    left: 3px;
+    width: 21px;
+    height: 21px;
+  }
+
+  .theme-circle {
+    width: 21px;
+    height: 21px;
+    min-width: 21px;
+    min-height: 21px;
+  }
+
+  .theme-circle svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  /* Hero: bring the decorative images close to the type. */
+  .hero {
+    min-height: 620px;
+    padding: 90px 20px 40px;
+  }
+
+  .greeting {
+    top: 108px;
+    font-size: 11px;
+    line-height: 15px;
+    padding: 5px 11px;
+  }
+
+  .hero-content {
+    top: 274px;
+    width: calc(100% - 40px);
+  }
+
+  .text-type {
+    font-size: clamp(42px, 13vw, 60px);
+    letter-spacing: 0.035em;
+  }
+
+  .star-image {
+    width: 73px;
+    height: 73px;
+    left: 13%;
+    top: 181px;
+  }
+
+  .lightning-image {
+    width: 69px;
+    height: 69px;
+    right: 8%;
+    top: 300px;
+  }
+
+  /* Raise the third horizontal grid line and place scroll below it. */
+  .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 520px,
+        var(--pattern) 521px,
+        transparent 522px
+      );
+  }
+
+  .scroll-indicator {
+    top: 536px;
+    transform: translateX(-50%) scale(0.68);
+    transform-origin: top center;
+  }
+
+  .scroll-line {
+    height: 27px;
+    margin-top: 10px;
+  }
+
+  /* About: 20px side padding and smaller copy. */
+  .about-section {
+    width: calc(100% - 40px);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 22px;
+    padding-bottom: 80px;
+  }
+
+  .about-copy {
+    padding-right: 0;
+    font-size: clamp(24px, 7.5vw, 34px);
+    line-height: 1.02;
+  }
+
+  .about-section p {
+    padding-right: 0;
+  }
+
+  .about-description {
+    font-size: 10px;
+    line-height: 1.55;
+  }
+
+
+  .project-star-bottom-left,
+  .project-star-bottom-right {
+    display: none;
+  }
+
+  /* Project CTA: shorter text and smaller button. */
+  .project-button-desktop {
+    display: none;
+  }
+
+  .project-button-mobile {
+    display: inline;
+  }
+
+  .project-button {
+    min-height: 32px;
+    padding: 0 14px;
+    font-size: 11px;
+    transform: translate(-8px, -31px);
+  }
+
+  /* Stack: 3 boxes per row, one icon per box, 6 rows for 18 icons. */
+  .stack-docks {
+    display: block;
+    border-top: 1px solid var(--pattern);
+    border-bottom: 1px solid var(--pattern);
+  }
+
+  .stack-dock {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 0 !important;
+    border-left: 0;
+  }
+
+  .stack-dock + .stack-dock {
+    border-top: 1px solid var(--pattern) !important;
+  }
+
+  .stack-dock-item {
+    display: flex;
+    width: 100%;
+    height: 68px;
+    border-left: 1px solid var(--pattern);
+  }
+
+  .stack-dock-item:last-child {
+    border-right: 1px solid var(--pattern);
+  }
+
+  .stack-dock-item span {
+    display: none;
+  }
+
+  .stack-dock-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  /* Tighter FLOW heading gap. */
+  .flow-heading-row {
+    gap: 0px;
+  }
+
+  /* Footer: photo first, CTA below it. */
+  .site-footer {
+    padding: 24px 7.5%;
+  }
+
+  .site-footer-main {
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  .site-footer-photo-frame {
+    width: 150px;
+    max-width: 150px;
+    height: 150px;
+    padding: 5px;
+    margin: 0 auto;
+    order: 1;
+  }
+
+  .site-footer-cta {
+    width: 100%;
+    padding: 24px 0 30px;
+    border-right: 0;
+    order: 2;
+    text-align: center;
+  }
+
+  .site-footer-cta h2 {
+    font-size: 38px;
+    line-height: 0.88;
+  }
+
+  .site-footer-cta p {
+    font-size: 12px;
+  }
+
+  .site-footer-button {
+    margin: 0 auto;
+  }
+
+  .site-footer-links {
+    justify-content: center;
+  }
+}
+
+
+/* =====================================================
+   FINAL MOBILE REFINEMENT — 360px
+===================================================== */
+@media (max-width: 500px) {
+  .navbar {
+    width: 124px;
+    height: 46px;
+    padding: 7px 11px;
+    border-radius: 26px;
+  }
+
+  .navbar > .active {
+    font-size: 10px;
+    margin-left: 26px;
+  }
+
+  .hamburger-button {
+    width: 23px;
+    height: 23px;
+  }
+
+  .theme-toggle {
+    right: 8.5%;
+    top: 9px;
+    width: 48px;
+    height: 27px;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .star-image {
+    top: 205px;
+  }
+
+  .hero-content {
+    top: 300px;
+  }
+
+  .lightning-image {
+    top: 335px;
+  }
+
+  .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 500px,
+        var(--pattern) 501px,
+        transparent 502px
+      );
+  }
+
+  .scroll-indicator {
+    top: 516px;
+  }
+
+  .about-copy,
+  .about-section p {
+    transform: translateX(-6px);
+  }
+
+  .project-button {
+    transform: translate(-6px, -36px);
+  }
+
+  .stack-dock {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stack-dock-item {
+    height: 68px;
+    min-height: 68px;
+  }
+
+  .stack-dock-item:nth-child(n + 3) {
+    border-top: 1px solid var(--pattern);
+  }
+
+  .stack-dock-item:nth-child(2n) {
+    border-right: 1px solid var(--pattern);
+  }
+
+  .stack-dock + .stack-dock {
+    border-top: 0 !important;
+  }
+
+  .stack-dock-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+
+/* =====================================================
+   FINAL REQUESTED RESPONSIVE OVERRIDES
+   Desktop / 1200px reference is intentionally untouched.
+===================================================== */
+
+@media (min-width: 501px) and (max-width: 800px) {
+  /* Tablet navbar: same visual language, hamburger navigation. */
+  .navbar {
+    width: 178px;
+    height: 50px;
+    gap: 0;
+    padding: 8px 14px;
+    justify-content: space-between;
+    border-radius: 28px;
+  }
+
+  .navbar > .active {
+    display: flex;
+    font-size: 11px;
+    margin-left: 22px;
+  }
+
+  .navbar > .active::after {
+    display: none;
+  }
+
+  .desktop-nav-links {
+    display: none;
+  }
+
+  .hamburger-button {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 0;
+    background: transparent;
+    color: var(--navbar-active);
+    cursor: pointer;
+  }
+
+  .hamburger-button span {
+    display: block;
+    width: 16px;
+    height: 1.5px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  .mobile-menu-open .hamburger-button span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+  .mobile-menu-open .hamburger-button span:nth-child(2) { opacity: 0; }
+  .mobile-menu-open .hamburger-button span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+  .mobile-nav-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 178px;
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 18px;
+    background: var(--navbar-surface);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    backdrop-filter: blur(12px) saturate(130%);
+    box-shadow: 0 10px 22px rgba(0,0,0,.15);
+  }
+
+  .mobile-menu-open .mobile-nav-menu { display: flex; }
+
+  .mobile-nav-menu a {
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: var(--navbar-text);
+    font-size: 10px;
+  }
+
+  .mobile-nav-menu a:hover {
+    background: color-mix(in srgb, var(--background) 75%, transparent);
+    color: var(--navbar-active);
+  }
+
+  .theme-toggle {
+    --toggle-shift: 24px;
+    width: 52px;
+    height: 29px;
+    padding: 3px;
+    top: 10px;
+    right: 8.5%;
+    border-radius: 15px;
+  }
+
+  .theme-toggle::before {
+    top: 3px;
+    left: 3px;
+    width: 23px;
+    height: 23px;
+  }
+
+  .theme-circle {
+    width: 23px;
+    height: 23px;
+    min-width: 23px;
+    min-height: 23px;
+    z-index: 2;
+  }
+
+  .theme-circle svg { width: 14px; height: 14px; }
+
+  .stack-dock + .stack-dock {
+    border-top: 1px solid var(--pattern) !important;
+  }
+
+  .stack-dock-item span { display: block; }
+
+  /* Projects page: one project card per row below desktop. */
+  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid-card:nth-child(odd) { border-right: 0; }
+  .projects-grid-card { padding-left: 20px; padding-right: 20px; }
+  .projects-grid-media { width: 92%; max-width: 92%; }
+}
+
+@media (max-width: 500px) {
+  /* Move View All slightly upward at 360px. */
+  .project-button { transform: translate(-6px, -43px); }
+
+  /* Keep every stack item labeled and centered. */
+  .stack-dock-item {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .stack-dock-item span {
+    display: block;
+    font-size: 8px;
+    line-height: 1;
+    opacity: .7;
+  }
+
+  /* Horizontal separators: PHP/Java -> React/Vite and
+     Figma/Postman -> AWS/Git are preserved at original row boundaries. */
+  .stack-dock + .stack-dock {
+    border-top: 1px solid var(--pattern) !important;
+  }
+
+  /* Ensure the moon icon remains visible in light theme. */
+  .theme-toggle,
+  .theme-circle,
+  .theme-circle svg { overflow: visible; }
+  .theme-circle.moon {
+    z-index: 3;
+    opacity: 1;
+    visibility: visible;
+  }
+  .site:not(.dark) .theme-circle.moon { color: #000000 !important; }
+
+  /* Projects page: exactly one card per row on mobile. */
+  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid-card:nth-child(odd) { border-right: 0; }
+  .projects-grid-card { padding-left: 12px; padding-right: 12px; }
+  .projects-grid-media { width: 100%; max-width: 100%; }
+}
+
+/* =====================================================
+   FINAL RESPONSIVE REFINEMENT — REQUESTED ADJUSTMENTS
+   Desktop / 1200px reference remains untouched.
+===================================================== */
+
+/* 600px tablet */
+@media (min-width: 501px) and (max-width: 800px) {
+  .contact-label {
+    display: none;
+  }
+
+  /* Move hero elements slightly upward on tablet. */
+  .star-image {
+    top: 255px;
+  }
+
+  .hero-content {
+    top: 410px;
+  }
+
+  .lightning-image {
+    top: 435px;
+  }
+
+  .scroll-indicator {
+    top: 592px;
+  }
+
+  /* The stars belong to the third responsive horizontal line. */
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 548px;
+  }
+}
+
+/* 360px / mobile */
+@media (max-width: 500px) {
+  /* Move hero elements slightly downward on mobile. */
+  .star-image {
+    top: 220px;
+  }
+
+  .hero-content {
+    top: 315px;
+  }
+
+  .lightning-image {
+    top: 350px;
+  }
+
+  .scroll-indicator {
+    top: 528px;
+  }
+
+  /* The stars sit directly on the third horizontal responsive line. */
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 501px;
+  }
+
+  /* Keep the fourth, fifth and sixth separators visually consistent
+     with the lower horizontal dock separators (7/8 language): thin,
+     subtle, full-width separators rather than heavy card borders. */
+  .stack-dock + .stack-dock,
+  .stack-dock-item:nth-child(n + 3) {
+    border-top: 1px solid var(--pattern) !important;
+  }
+}
+
+/* =====================================================
+   FINAL V4 — PRECISE RESPONSIVE LINE / HERO TUNING
+   Desktop / 1200px is intentionally untouched.
+===================================================== */
+
+/* 600px: lift hero composition slightly. */
+@media (min-width: 501px) and (max-width: 800px) {
+  .star-image { top: 245px; }
+  .hero-content { top: 400px; }
+  .lightning-image { top: 425px; }
+  .scroll-indicator { top: 580px; }
+
+  /* Horizontal line #3 uses exactly the same 1px treatment as #2. */
+  .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 548px,
+        var(--pattern) 549px,
+        transparent 550px
+      );
+  }
+
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 549px;
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    font-size: 12px;
+    line-height: 1;
+    opacity: .7;
+  }
+
+  /* Keep responsive section separators in the same thin language as #8. */
+  .about-section::before,
+  .about-section::after,
+  .project-heading-row,
+  .project-content,
+  .stack-section::before,
+  .stack-section::after,
+  .stack-docks,
+  .stack-dock + .stack-dock {
+    border-color: var(--pattern);
+  }
+}
+
+/* 360px: lower hero composition slightly. */
+@media (max-width: 500px) {
+  .star-image { top: 235px; }
+  .hero-content { top: 330px; }
+  .lightning-image { top: 365px; }
+
+  /* Horizontal line #3 is styled exactly like #2. */
+  .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 520px,
+        var(--pattern) 521px,
+        transparent 522px
+      );
+  }
+
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 521px;
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    font-size: 12px;
+    line-height: 1;
+    opacity: .7;
+  }
+
+  /* Lines #4/#5/#6 use the exact same 1px subtle border language as #8. */
+  .about-section::before,
+  .about-section::after,
+  .project-heading-row,
+  .project-content,
+  .stack-section::before,
+  .stack-section::after,
+  .stack-docks,
+  .stack-dock + .stack-dock {
+    border-color: var(--pattern);
+  }
+}
+
+/* =====================================================
+   FINAL USER REQUEST — 600px / 360px PRECISION
+   These rules intentionally come last so they override
+   previous responsive refinements without changing desktop.
+===================================================== */
+
+/* 600px — move the hero composition slightly upward. */
+@media (min-width: 501px) and (max-width: 800px) {
+  .star-image { top: 235px; }
+  .hero-content { top: 390px; }
+  .lightning-image { top: 415px; }
+  .scroll-indicator { top: 570px; }
+
+  /* Horizontal line #3 = EXACT same 1px treatment as line #2. */
+  .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 548px,
+        var(--pattern) 549px,
+        transparent 550px
+      );
+  }
+
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 549px;
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    font-size: 12px;
+    line-height: 1;
+    opacity: .7;
+  }
+
+  /* Lines #4/#5/#6 use the same thin 1px language as #8. */
+  .about-section::before,
+  .about-section::after,
+  .project-heading-row,
+  .project-content,
+  .stack-section::before,
+  .stack-section::after,
+  .stack-docks,
+  .stack-dock + .stack-dock {
+    border-color: var(--pattern) !important;
+    border-width: 1px;
+  }
+}
+
+/* 360px — move the hero composition slightly downward. */
+@media (max-width: 500px) {
+  .star-image { top: 245px; }
+  .hero-content { top: 340px; }
+  .lightning-image { top: 375px; }
+  .scroll-indicator { top: 538px; }
+
+  /* Horizontal line #3 = EXACT same 1px treatment as line #2. */
+  .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 530px,
+        var(--pattern) 531px,
+        transparent 532px
+      );
+  }
+
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 531px;
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    font-size: 12px;
+    line-height: 1;
+    opacity: .7;
+  }
+
+  /* Lines #4/#5/#6 = EXACT same thin 1px treatment as #8. */
+  .about-section::before,
+  .about-section::after,
+  .project-heading-row,
+  .project-content,
+  .stack-section::before,
+  .stack-section::after,
+  .stack-docks,
+  .stack-dock + .stack-dock {
+    border-color: var(--pattern) !important;
+    border-width: 1px;
+  }
+
+  /* Make the moon clearly visible at 360px.
+     The previous 48x27 toggle clipped the 30px moon circle. */
+  .theme-toggle {
+    width: 52px;
+    height: 29px;
+    padding: 3px;
+    overflow: visible;
+  }
+
+  .theme-toggle::before {
+    top: 3px;
+    left: 3px;
+    width: 23px;
+    height: 23px;
+  }
+
+  .theme-circle {
+    width: 23px;
+    height: 23px;
+    min-width: 23px;
+    min-height: 23px;
+    left: 3px;
+    z-index: 3;
+  }
+
+  .theme-circle svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .theme-circle.moon {
+    transform: translateX(23px);
+    z-index: 4;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .site:not(.dark) .theme-circle.moon {
+    color: #000000 !important;
+  }
+
+  .site.dark .theme-circle.moon {
+    transform: translateX(23px);
+    color: #ffffff;
+  }
+
+  .site.dark .theme-toggle::before {
+    transform: translateX(23px);
+  }
+}
+
+/* =====================================================
+   FINAL LINE SYSTEM — 360px & 600px
+   Line #3 receives the stars that previously sat on #4.
+   Lines #4/#5/#6 use the exact same 1px pattern language
+   as the reference horizontal line #8.
+===================================================== */
+
+@media (min-width: 501px) and (max-width: 800px) {
+  /* Horizontal line #3 = the same visual treatment as #2 (1px). */
+  .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 601px,
+        var(--pattern) 602px,
+        transparent 603px
+      );
+  }
+
+  /* Move the two #4 stars onto #3. */
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 180px;
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    opacity: 0.7;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  /* #4, #5, #6 — identical 1px pattern treatment to #8. */
+  .about-section::before,
+  .about-section::after,
+  .project-heading-row,
+  .project-content,
+  .stack-section::before,
+  .stack-section::after,
+  .flow-heading-row,
+  .flow-grid,
+  .site-footer,
+  .site-footer-main {
+    border-color: var(--pattern) !important;
+    border-width: 1px !important;
+  }
+
+  /* Their stars use the exact same geometry as the reference stars. */
+  .about-star,
+  .project-star,
+  .stack-star,
+  .flow-heading-row::before,
+  .flow-heading-row::after {
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    font-size: 12px;
+    line-height: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Horizontal line #3 = exactly the same 1px treatment as #2. */
+  .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 501px,
+        var(--pattern) 502px,
+        transparent 503px
+      );
+  }
+
+  /* Move the #4 stars onto #3. */
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 180px;
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    opacity: 0.7;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  /* #4, #5, #6 — force the exact same 1px pattern language as #8. */
+  .about-section::before,
+  .about-section::after,
+  .project-heading-row,
+  .project-content,
+  .stack-section::before,
+  .stack-section::after,
+  .flow-heading-row,
+  .flow-grid,
+  .site-footer,
+  .site-footer-main {
+    border-color: var(--pattern) !important;
+    border-width: 1px !important;
+  }
+
+  /* Stars on those separators: same size, opacity and positioning language. */
+  .about-star,
+  .project-star,
+  .stack-star,
+  .flow-heading-row::before,
+  .flow-heading-row::after {
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    font-size: 12px;
+    line-height: 1;
+  }
+}
+
+
+/* =====================================================
+   FINAL USER REQUEST — 360px / 600px EXACT LINE + BORDER MATCH
+   Desktop remains untouched.
+===================================================== */
+
+/* 600px — horizontal line at 602px gets the same corner stars
+   geometry as the second horizontal line. */
+@media (min-width: 501px) and (max-width: 800px) {
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 597px;
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    opacity: 0.7;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  /* About top + bottom = identical 1px line treatment to Stack. */
+  .about-section::before,
+  .about-section::after {
+    height: 1px;
+    background: var(--pattern);
+  }
+
+  /* Projects top = identical 1px line treatment to Stack top. */
+  .project-section {
+    border-top: 1px solid var(--pattern);
+  }
+}
+
+/* 360px — horizontal line at 502px gets the same corner stars
+   geometry as the second horizontal line. */
+@media (max-width: 500px) {
+  .background-pattern .star-3,
+  .background-pattern .star-6 {
+    top: 497px;
+    width: 10px;
+    height: 10px;
+    color: var(--pattern-star);
+    opacity: 0.7;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  /* About top + bottom = identical 1px line treatment to Stack. */
+  .about-section::before,
+  .about-section::after {
+    height: 1px;
+    background: var(--pattern);
+  }
+
+  /* Projects top = identical 1px line treatment to Stack top. */
+  .project-section {
+    border-top: 1px solid var(--pattern);
+  }
+}
+
+/* =====================================================
+   FINAL — ABOUT / PROJECT FRAME ALIGNMENT
+   360px & 600px ONLY
+   Desktop is intentionally untouched.
+
+   The background-pattern verticals remain the master:
+   left/right = 7.5% of viewport.
+   Existing section stars are moved to those exact
+   vertical-line positions. No new stars are generated.
+===================================================== */
+
+/* 600px / tablet */
+@media (min-width: 501px) and (max-width: 800px) {
+  /* ABOUT
+     .content-section starts at 6vw.
+     The existing tablet about margin-left is 32px.
+     Therefore the horizontal line/stars use the actual
+     7.5% background-pattern verticals as their reference. */
+  .about-section {
+    --frame-left: calc(1.5vw - 32px);
+    --frame-right: calc(1.5vw - 32px);
+  }
+
+  .about-section::before,
+  .about-section::after {
+    left: var(--frame-left);
+    right: var(--frame-right);
+    width: auto;
+    height: 1px;
+    background: var(--pattern);
+  }
+
+  .about-star-top-left {
+    left: var(--frame-left);
+  }
+
+  .about-star-top-right {
+    right: var(--frame-right);
+  }
+
+  .about-star-bottom-left {
+    left: var(--frame-left);
+  }
+
+  .about-star-bottom-right {
+    right: var(--frame-right);
+  }
+
+  /* PROJECT
+     project-section keeps its existing width/position.
+     Its line is extended only to the existing background
+     verticals; the section itself is not moved. */
+  .project-section {
+    --frame-left: 1.5vw;
+    --frame-right: -11.7vw;
+    overflow: visible;
+    border-top: 0 !important;
+  }
+
+  .project-section::before,
+  .project-section::after {
+    content: "";
+    position: absolute;
+    left: var(--frame-left);
+    right: var(--frame-right);
+    height: 1px;
+    background: var(--pattern);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .project-section::before {
+    top: 0;
+  }
+
+  .project-section::after {
+    bottom: 0;
+  }
+
+  .project-star-top-left {
+    left: var(--frame-left);
+  }
+
+  .project-star-top-right {
+    right: var(--frame-right);
+  }
+
+  .project-star-bottom-left {
+    left: var(--frame-left);
+  }
+
+  .project-star-bottom-right {
+    right: var(--frame-right);
+  }
+}
+
+/* 360px / mobile */
+@media (max-width: 500px) {
+  /* ABOUT
+     At mobile the existing about section starts on the
+     same 6vw content edge, so only 1.5vw is needed to
+     reach the 7.5% background-pattern verticals. */
+  .about-section {
+    --frame-left: 1.5vw;
+    --frame-right: calc(1.5vw - 40px);
+  }
+
+  .about-section::before,
+  .about-section::after {
+    left: var(--frame-left);
+    right: var(--frame-right);
+    width: auto;
+    height: 1px;
+    background: var(--pattern);
+  }
+
+  .about-star-top-left {
+    left: var(--frame-left);
+  }
+
+  .about-star-top-right {
+    right: var(--frame-right);
+  }
+
+  .about-star-bottom-left {
+    left: var(--frame-left);
+  }
+
+  .about-star-bottom-right {
+    right: var(--frame-right);
+  }
+
+  /* PROJECT
+     Existing project section is not moved. Its line and
+     existing four stars are aligned to the same master
+     verticals. */
+  .project-section {
+    --frame-left: 1.5vw;
+    --frame-right: -11.7vw;
+    overflow: visible;
+    border-top: 0 !important;
+  }
+
+  .project-section::before,
+  .project-section::after {
+    content: "";
+    position: absolute;
+    left: var(--frame-left);
+    right: var(--frame-right);
+    height: 1px;
+    background: var(--pattern);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .project-section::before {
+    top: 0;
+  }
+
+  .project-section::after {
+    bottom: 0;
+  }
+
+  .project-star-top-left {
+    left: var(--frame-left);
+  }
+
+  .project-star-top-right {
+    right: var(--frame-right);
+  }
+
+  .project-star-bottom-left,
+  .project-star-bottom-right {
+    display: block;
+  }
+
+  .project-star-bottom-left {
+    left: var(--frame-left);
+  }
+
+  .project-star-bottom-right {
+    right: var(--frame-right);
+  }
+}
+
+
+
+/* =====================================================
+   FINAL CORRECTION — FRAME EDGES 360px / 600px
+   Horizontal section lines must terminate exactly at the
+   master vertical background-pattern lines (7.5vw).
+   Desktop is untouched.
+===================================================== */
+
+@media (min-width: 501px) and (max-width: 800px) {
+  /* ABOUT: tablet section starts 32px inside the 6vw content edge.
+     The negative right value is intentional because the master
+     vertical frame sits outside the section's own right edge. */
+  .about-section {
+    --frame-left: calc(1.5vw - 32px);
+    --frame-right: calc(1.5vw - 32px);
+  }
+
+  .about-section::before,
+  .about-section::after {
+    left: var(--frame-left) !important;
+    right: var(--frame-right) !important;
+    width: auto !important;
+    height: 1px !important;
+    border: 0 !important;
+    background: var(--pattern) !important;
+  }
+
+  .about-star-top-left,
+  .about-star-bottom-left {
+    left: var(--frame-left) !important;
+  }
+
+  .about-star-top-right,
+  .about-star-bottom-right {
+    right: var(--frame-right) !important;
+  }
+
+  /* PROJECT: use one outer frame only. The old project-section
+     border-top and pseudo-element combination could create a
+     duplicate top/bottom line. */
+  .project-section {
+    --frame-left: -5.1vw;
+    --frame-right: -5.1vw;
+    position: relative;
+    overflow: visible;
+    border-top: 0 !important;
+  }
+
+  .project-section::before {
+    content: "";
+    position: absolute;
+    left: var(--frame-left) !important;
+    right: var(--frame-right) !important;
+    top: 0;
+    width: auto !important;
+    height: 1px;
+    background: var(--pattern);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Do not add a second bottom line: .project-content already
+     owns the bottom separator. */
+  .project-section::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .project-star-top-left,
+  .project-star-bottom-left {
+    left: var(--frame-left) !important;
+  }
+
+  .project-star-top-right,
+  .project-star-bottom-right {
+    right: var(--frame-right) !important;
+  }
+
+  .project-content {
+    border-bottom: 1px solid var(--pattern) !important;
+  }
+}
+
+@media (max-width: 500px) {
+  /* ABOUT: .about-section is centered at 85% of the 88% content
+     width, so its own edges are 12.6vw / 87.4vw. Move its lines
+     outward by 5.1vw to meet the 7.5vw master verticals. */
+  .about-section {
+    --frame-left: -5.1vw;
+    --frame-right: -5.1vw;
+  }
+
+  .about-section::before,
+  .about-section::after {
+    left: var(--frame-left) !important;
+    right: var(--frame-right) !important;
+    width: auto !important;
+    height: 1px !important;
+    border: 0 !important;
+    background: var(--pattern) !important;
+  }
+
+  .about-star-top-left,
+  .about-star-bottom-left {
+    left: var(--frame-left) !important;
+  }
+
+  .about-star-top-right,
+  .about-star-bottom-right {
+    right: var(--frame-right) !important;
+  }
+
+  /* PROJECT: same exact 7.5vw master frame as About. */
+  .project-section {
+    --frame-left: -5.1vw;
+    --frame-right: -5.1vw;
+    position: relative;
+    overflow: visible;
+    border-top: 0 !important;
+  }
+
+  .project-section::before {
+    content: "";
+    position: absolute;
+    left: var(--frame-left) !important;
+    right: var(--frame-right) !important;
+    top: 0;
+    width: auto !important;
+    height: 1px;
+    background: var(--pattern);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Remove the duplicate outer bottom pseudo-line. */
+  .project-section::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .project-star-top-left,
+  .project-star-bottom-left {
+    left: var(--frame-left) !important;
+  }
+
+  .project-star-top-right,
+  .project-star-bottom-right {
+    right: var(--frame-right) !important;
+  }
+
+  .project-content {
+    border-bottom: 1px solid var(--pattern) !important;
+  }
+}
+
+/* =====================================================
+   CLEAN RESPONSIVE FRAME — ABOUT / PROJECT
+   Same layout logic as STACK / FLOW.
+   360px & 600px only. Desktop untouched.
+
+   IMPORTANT:
+   Do NOT extend section borders with viewport offsets.
+   The section itself owns the responsive width; its
+   pseudo-elements use left:0/right:0 exactly like Stack.
+===================================================== */
+
+@media (min-width: 501px) and (max-width: 800px),
+       (max-width: 500px) {
+
+  /* ABOUT — exactly the same border model as STACK. */
+  .about-section {
+    position: relative;
+    width: 85%;
+  }
+
+  .about-section::before,
+  .about-section::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    height: 1px !important;
+    border: 0 !important;
+    background: var(--pattern) !important;
+    pointer-events: none;
+  }
+
+  .about-section::before {
+    top: 0 !important;
+  }
+
+  .about-section::after {
+    bottom: 0 !important;
+  }
+
+  /* About stars stay on the section's own four corners,
+     exactly like Stack stars. */
+  .about-star-top-left {
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  .about-star-top-right {
+    top: 0 !important;
+    right: 0 !important;
+  }
+
+  .about-star-bottom-left {
+    bottom: 0 !important;
+    left: 0 !important;
+  }
+
+  .about-star-bottom-right {
+    bottom: 0 !important;
+    right: 0 !important;
+  }
+
+  /* PROJECT — one outer top line + the existing content bottom line.
+     Remove every extra section border/pseudo bottom line. */
+  .project-section {
+    position: relative !important;
+    width: 85% !important;
+    overflow: visible !important;
+    border: 0 !important;
+  }
+
+  .project-section::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    height: 1px !important;
+    border: 0 !important;
+    background: var(--pattern) !important;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .project-section::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* Keep the existing internal Project separators only where
+     they already belong. The bottom edge is owned by content. */
+  .project-heading-row {
+    border-bottom: 1px solid var(--pattern) !important;
+  }
+
+  .project-content {
+    border-bottom: 1px solid var(--pattern) !important;
+  }
+
+  /* Project stars follow the same 0/0 corner geometry as Stack. */
+  .project-star-top-left {
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  .project-star-top-right {
+    top: 0 !important;
+    right: 0 !important;
+  }
+
+  .project-star-bottom-left {
+    bottom: 0 !important;
+    left: 0 !important;
+  }
+
+  .project-star-bottom-right {
+    bottom: 0 !important;
+    right: 0 !important;
+  }
+}
+
+/* =====================================================
+   FINAL CLEANUP — RESPONSIVE ABOUT / PROJECT / FLOW STARS
+   360px & 600px only.
+   Match the native Stack/Flow border model exactly.
+===================================================== */
+@media (min-width: 501px) and (max-width: 800px),
+       (max-width: 500px) {
+
+  /* ABOUT: one top line + one bottom line, exactly like Stack. */
+  .about-section {
+    position: relative !important;
+    width: 85% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border: 0 !important;
+  }
+
+  .about-section::before,
+  .about-section::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    height: 1px !important;
+    min-height: 0 !important;
+    border: 0 !important;
+    background: var(--pattern) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .about-section::before { top: 0 !important; }
+  .about-section::after { bottom: 0 !important; }
+
+  /* ABOUT stars: same native corner geometry as Stack. */
+  .about-star-top-left {
+    top: 0 !important;
+    left: 0 !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  .about-star-top-right {
+    top: 0 !important;
+    right: 0 !important;
+    transform: translate(50%, -50%) !important;
+  }
+  .about-star-bottom-left {
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: translate(-50%, 50%) !important;
+  }
+  .about-star-bottom-right {
+    bottom: 0 !important;
+    right: 0 !important;
+    transform: translate(50%, 50%) !important;
+  }
+
+  /* PROJECT: one outer top line only.
+     Bottom remains the existing .project-content border.
+     No section bottom pseudo-element and no section border. */
+  .project-section {
+    position: relative !important;
+    width: 85% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .project-section::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    height: 1px !important;
+    min-height: 0 !important;
+    border: 0 !important;
+    background: var(--pattern) !important;
+    box-shadow: none !important;
+    transform: none !important;
+    pointer-events: none !important;
+    z-index: 3 !important;
+  }
+
+  .project-section::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .project-content {
+    border-bottom: 1px solid var(--pattern) !important;
+  }
+
+  /* PROJECT stars: native corner geometry. */
+  .project-star-top-left {
+    top: 0 !important;
+    left: 0 !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  .project-star-top-right {
+    top: 0 !important;
+    right: 0 !important;
+    transform: translate(50%, -50%) !important;
+  }
+  .project-star-bottom-left {
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: translate(-50%, 50%) !important;
+  }
+  .project-star-bottom-right {
+    bottom: 0 !important;
+    right: 0 !important;
+    transform: translate(50%, 50%) !important;
+  }
+
+  /* FLOW: raise the two stars slightly from the baseline. */
+  .flow-heading-row::before {
+    transform: translate(-50%, 35%) !important;
+  }
+  .flow-heading-row::after {
+    transform: translate(50%, 35%) !important;
+  }
+}
+
+
+/* =====================================================
+   FINAL ABOUT-ONLY FIX
+   360px / 600px ONLY
+   - About title underline matches About top section line.
+   - About bottom uses one line only.
+   - No other section is changed.
+===================================================== */
+
+@media (min-width: 501px) and (max-width: 800px),
+       (max-width: 500px) {
+
+  /* Keep About section frame identical to Stack. */
+  .about-section {
+    position: relative !important;
+    width: 85% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border: 0 !important;
+  }
+
+  .about-section::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    height: 1px !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    background: var(--pattern) !important;
+  }
+
+  /* ONE bottom border only. */
+  .about-section::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    height: 1px !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    background: var(--pattern) !important;
+  }
+
+  /*
+    The title separator must have the SAME width as the
+    section's top line. On 360px the section has 20px
+    horizontal padding, so extend the title separator
+    back to the section edges.
+  */
+  .about-title {
+    width: 100% !important;
+    border-bottom: 1px solid var(--pattern) !important;
+  }
+
+  /* Same corner-star geometry as Stack. */
+  .about-star-top-left {
+    top: 0 !important;
+    left: 0 !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .about-star-top-right {
+    top: 0 !important;
+    right: 0 !important;
+    transform: translate(50%, -50%) !important;
+  }
+
+  .about-star-bottom-left {
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: translate(-50%, 50%) !important;
+  }
+
+  .about-star-bottom-right {
+    bottom: 0 !important;
+    right: 0 !important;
+    transform: translate(50%, 50%) !important;
+  }
+}
+
+/* 360px: About has 20px inner padding, so the title line
+   needs to extend exactly to the same edge as the section line. */
+@media (max-width: 500px) {
+  .about-title {
+    width: calc(100% + 40px) !important;
+    margin-left: -20px !important;
+    margin-right: 0 !important;
+  }
+}
+
+
+/* =====================================================
+   FINAL USER REQUEST — NAV / 600 SCROLL / 360 PROJECT GRID
+   Desktop layout remains untouched.
+===================================================== */
+
+/* Keep the desktop navbar in one fixed position.
+   Only the active underline moves between Home / Projects / Stack. */
+.navbar .desktop-nav-links a.active {
+  color: var(--navbar-active);
+}
+
+@media (min-width: 501px) {
+  .navbar .desktop-nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 2px;
+    border-radius: 10px;
+    background: currentColor;
+  }
+}
+
+/* 600px — the SCROLL indicator starts below horizontal gradient #3.
+   Gradient #3 is at 549px in the current tablet pattern. */
+@media (min-width: 501px) and (max-width: 800px) {
+  .scroll-indicator {
+    top: 620px !important;
+  }
+}
+
+/* 360px — make every project card stay fully inside the projects grid. */
+@media (max-width: 500px) {
+  .projects-page {
+    width: 85% !important;
+    max-width: 85% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .projects-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    overflow: hidden !important;
+  }
+
+  .projects-grid-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 36px 12px 28px !important;
+    overflow: hidden !important;
+  }
+
+  .projects-grid-card:nth-child(odd) {
+    border-right: 0 !important;
+  }
+
+  .projects-grid-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    aspect-ratio: 16 / 10 !important;
+    box-sizing: border-box !important;
+  }
+
+  .projects-grid-meta {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-top: 16px !important;
+    padding-right: 48px !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .projects-grid-meta h2 {
+    min-width: 0 !important;
+    font-size: clamp(27px, 8vw, 34px) !important;
+  }
+
+  .projects-grid-meta p {
+    min-width: 0 !important;
+    font-size: 11px !important;
+  }
+
+  .projects-arrow {
+    right: 0 !important;
+    top: 10px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .projects-arrow svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* On 360px/600px the hamburger's Stack item always goes to the
+   dedicated Stack page. */
+@media (max-width: 800px) {
+  .mobile-nav-menu a[href="/stack"] {
+    cursor: pointer;
+  }
+}
+
+
+/* =====================================================
+   FINAL NAV / 600PX HERO POSITION FIX
+   - Navbar order is always Home -> Projects -> Stack.
+   - Desktop keeps one fixed navbar position; only active line changes.
+   - Mobile/tablet shows only the active direct nav label next to hamburger.
+   - Desktop rules above remain untouched.
+===================================================== */
+
+@media (max-width: 800px) {
+  .navbar > a:not(.active) {
+    display: none !important;
+  }
+}
+
+/* Desktop: the standalone active label is mobile-only.
+   The desktop navbar is rendered only by .desktop-nav-links,
+   so Home / Projects / Stack can never appear twice. */
+@media (min-width: 801px) {
+  .navbar > .active {
+    display: none !important;
+  }
+
+  .navbar > .hamburger-button,
+  .navbar > .mobile-nav-menu {
+    display: none !important;
+  }
+
+  .navbar > .desktop-nav-links {
+    display: contents !important;
+  }
+}
+
+@media (min-width: 801px) {
+  .navbar > a {
+    display: flex !important;
+  }
+}
+
+/* 600px: move the scroll indicator farther down, while keeping it below
+   the third horizontal line at 549px. Also shift the star right and
+   lightning left slightly. */
+@media (min-width: 501px) and (max-width: 800px) {
+  .scroll-indicator {
+    top: 620px !important;
+  }
+
+  .star-image {
+    left: 14% !important;
+  }
+
+  .lightning-image {
+    right: 10% !important;
+  }
+}

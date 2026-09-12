@@ -1,0 +1,37 @@
+{
+  "name": "portfolio-azida",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/geist": "^5.3.0",
+    "@iconify-react/akar-icons": "^1.0.2",
+    "@iconify-react/basil": "^1.0.2",
+    "@iconify-react/bxl": "^1.0.2",
+    "@iconify-react/catppuccin": "^1.0.2",
+    "@iconify-react/ci": "^1.0.2",
+    "@iconify-react/devicon": "^1.0.5",
+    "@iconify-react/ic": "^1.0.2",
+    "@iconify-react/logos": "^1.0.6",
+    "@iconify-react/mdi": "^1.0.2",
+    "@iconify-react/selfhst": "^1.0.16",
+    "@iconify/react": "^6.0.2",
+    "gsap": "^3.15.0",
+    "motion": "^13.2.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.1.0",
+    "oxlint": "^1.79.0",
+    "vite": "^8.2.2"
+  }
+}
