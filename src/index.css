@@ -253,11 +253,6 @@ body {
   top: -1px;
 
   height: 1px;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 20px 0;
 
   box-shadow: none;
 
@@ -3909,7 +3904,13 @@ body {
   .about-copy,
   .about-section p {
     padding-right: 3%;
+    max-width: 100%;
+    margin-left: 0;
     transform: none;
+  }
+
+  .about-copy br {
+    display: none;
   }
 
   .project-button {
@@ -6499,5 +6500,159 @@ body {
         var(--pattern) 531px,
         transparent 532px
       ) !important;
+  }
+
+  .site:not(.projects-site):not(.stack-page-site) .background-pattern .star-3,
+  .site:not(.projects-site):not(.stack-page-site) .background-pattern .star-6 {
+    top: 527px !important;
+  }
+}
+
+/* Canonical responsive layout: keep Home, Projects, and Stack aligned. */
+@media (max-width: 800px) {
+  .site {
+    overflow-x: hidden;
+  }
+
+  .header {
+    top: 18px;
+    height: 52px;
+  }
+
+  .navbar {
+    left: 50%;
+    width: 178px;
+    height: 50px;
+    padding: 8px 14px;
+    gap: 0;
+    justify-content: space-between;
+    border-radius: 28px;
+  }
+
+  .navbar > a.active {
+    display: flex !important;
+    margin-left: 22px;
+    font-size: 11px;
+  }
+
+  .navbar > a.active::after {
+    display: none;
+  }
+
+  .navbar > a:not(.active),
+  .desktop-nav-links {
+    display: none !important;
+  }
+
+  .hamburger-button {
+    position: relative;
+    display: flex;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-nav-menu {
+    top: calc(100% + 8px);
+    right: 0;
+    width: 178px;
+  }
+
+  .content-section,
+  .about-section,
+  .experience-section,
+  .project-section,
+  .stack-section,
+  .flow-section,
+  .projects-page,
+  .stack-page {
+    width: 85%;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-photo {
+    width: 240px;
+    height: auto;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: none;
+  }
+
+  .experience-item {
+    grid-template-columns: 86px minmax(0, 1fr);
+  }
+
+  .experience-item ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stack-page-icon-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .projects-grid-card:nth-child(odd) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    top: 18px;
+  }
+
+  .navbar {
+    width: 132px;
+    height: 48px;
+    padding: 8px 13px;
+  }
+
+  .navbar > a.active {
+    margin-left: 29px;
+    font-size: 10px;
+  }
+
+  .hamburger-button {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobile-nav-menu {
+    width: 132px;
+  }
+
+  .stack-page-icon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-footer-button {
+    width: 85%;
+    min-height: 42px;
+  }
+}
+
+@media (min-width: 801px) {
+  .navbar > a,
+  .hamburger-button,
+  .mobile-nav-menu {
+    display: none !important;
+  }
+
+  .navbar > .desktop-nav-links {
+    display: contents !important;
   }
 }

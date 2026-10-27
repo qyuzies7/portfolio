@@ -164,7 +164,7 @@ function Home() {
           <h2 className="about-title">ABOUT</h2>
           <div className="about-body">
             <div className="about-text">
-              <h3 className="about-copy">I'm a Software Developer with a strong interest<br></br>in web and mobile application development.<br></br>I enjoy exploring how technology can<br></br>solve everyday problems and turning project ideas<br></br>into practical digital solutions.</h3>
+              <h3 className="about-copy">I'm a Software Developer with a strong interest<br></br>{" "}in web and mobile application development.<br></br>{" "}I enjoy exploring how technology can<br></br>{" "}solve everyday problems and turning project ideas<br></br>{" "}into practical digital solutions.</h3>
               <p className="about-description">My experience includes developing application features, integrating APIs, working with databases, and translating UI designs into functional interfaces. I'm always curious to learn, experiment with new technologies, and grow as a developer through every project I work on.</p>
             </div>
             <img className="about-photo" src={me} alt="Azida" />
