@@ -4807,14 +4807,17 @@ body {
   }
 
   .site-footer-button {
-    width: 100%;
+    width: 85%;
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 14px;
     margin: 0 auto;
   }
 
   .site-footer-buttons {
     width: 100%;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
 
   .site-footer-links {
@@ -6477,5 +6480,24 @@ body {
 
   .navbar > a.nav-home::after {
     display: none !important;
+  }
+}
+
+/* Keep the first three Home separators visible on mobile. */
+@media (max-width: 500px) {
+  .site:not(.projects-site):not(.stack-page-site) .background-pattern {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 120px,
+        var(--pattern) 121px,
+        transparent 122px,
+        transparent 184px,
+        var(--pattern) 185px,
+        transparent 186px,
+        transparent 530px,
+        var(--pattern) 531px,
+        transparent 532px
+      ) !important;
   }
 }
