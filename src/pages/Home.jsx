@@ -6,6 +6,7 @@ import bintangDark from "../assets/bintangdark.png";
 import petir from "../assets/petir.png";
 import petirDark from "../assets/petirdark.png";
 import aku from "../assets/aku.png";
+import me from "../assets/me.jpeg";
 import SunIcon from "@iconify-react/ci/sun";
 import MoonOutlineIcon from "@iconify-react/basil/moon-outline";
 import HtmlIcon from "@iconify-react/catppuccin/html";
@@ -32,6 +33,13 @@ const stackRows = [
   [[HtmlIcon, "HTML"], [CssFillIcon, "CSS"], [JavascriptIcon, "JavaScript"], [DartIcon, "Dart"], [PhpIcon, "PHP"], [JavaIcon, "Java"]],
   [[ReactIcon, "React"], [ViteIcon, "Vite"], [FlutterIcon, "Flutter"], [LaravelIcon, "Laravel"], [FigmaIcon, "Figma"], [PostmanIcon, "Postman"]],
   [[AwsIcon, "AWS"], [GitIcon, "Git"], [GithubFillIcon, "GitHub"], [MongodbIcon, "MongoDB"], [MysqlIcon, "MySQL"], [OracleIcon, "Oracle"]],
+];
+
+const stackCategories = [
+  ["LANGUAGES", ["JavaScript", "PHP", "Java", "Dart"]],
+  ["FRAMEWORKS & LIBRARIES", ["React", "Tailwind CSS", "Laravel", "Vite", "Flutter"]],
+  ["DATABASES & SERVICES", ["PostgreSQL", "MySQL", "Oracle", "MongoDB", "AWS"]],
+  ["TOOLS", ["Git", "GitHub", "Postman", "Figma"]],
 ];
 
 function Home() {
@@ -144,7 +152,7 @@ function Home() {
         <div className="greeting">Hi, I’m Azida</div>
         <img src={darkMode ? bintangDark : bintang} alt="" className="star-image" />
         <div className="hero-content">
-          <TextType text={["FRONT-END\nDEVELOPER", "WEB\nDEVELOPER", "UI/UX\nDESIGNER"]} typingSpeed={55} pauseDuration={2500} showCursor={false} cursorCharacter="▎" deletingSpeed={75} />
+          <TextType text={["SOFTWARE\nDEVELOPER"]} typingSpeed={55} pauseDuration={2500} showCursor={false} cursorCharacter="▎" deletingSpeed={75} />
         </div>
         <div className="scroll-indicator" aria-hidden="true"><span className="scroll-label">SCROLL</span><span className="scroll-line" /></div>
         <img src={darkMode ? petirDark : petir} alt="" className="lightning-image" />
@@ -154,8 +162,38 @@ function Home() {
         <span className="about-star about-star-top-left">✦</span><span className="about-star about-star-top-right">✦</span><span className="about-star about-star-bottom-left">✦</span><span className="about-star about-star-bottom-right">✦</span>
         <div>
           <h2 className="about-title">ABOUT</h2>
-          <h3 className="about-copy">Ideas should become<br />interfaces that feel<br />simple.</h3>
-          <p className="about-description">I’m a Front-End Developer, Web Designer, and UI/UX Designer<br />focused on transforming ideas into thoughtful interfaces—balancing<br />visual design, usability, and functionality.</p>
+          <div className="about-body">
+            <div className="about-text">
+              <h3 className="about-copy">I'm a Software Developer with a strong interest<br></br>in web and mobile application development.<br></br>I enjoy exploring how technology can<br></br>solve everyday problems and turning project ideas<br></br>into practical digital solutions.</h3>
+              <p className="about-description">My experience includes developing application features, integrating APIs, working with databases, and translating UI designs into functional interfaces. I'm always curious to learn, experiment with new technologies, and grow as a developer through every project I work on.</p>
+            </div>
+            <img className="about-photo" src={me} alt="Azida" />
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" className="content-section experience-section">
+        <span className="experience-star experience-star-top-left">✦</span><span className="experience-star experience-star-top-right">✦</span><span className="experience-star experience-star-bottom-left">✦</span><span className="experience-star experience-star-bottom-right">✦</span>
+        <div className="experience-heading-row">
+          <h2 className="experience-title">EXPERIENCE</h2>
+        </div>
+        <div className="experience-list">
+          <article className="experience-item">
+            <div className="experience-date">
+              <span>JUL — NOV</span>
+              <span>2025</span>
+            </div>
+            <div>
+              <h3>Web Developer Intern</h3>
+              <p className="experience-company">PT Kereta Api Indonesia (KAI) DAOP 6 Yogyakarta</p>
+              <ul>
+                <li>Developed a web-based visitor card application for visitor registration and visit request management.</li>
+                <li>Built the backend using Laravel and integrated it with the frontend through REST APIs.</li>
+                <li>Developed admin and user interfaces using React and Tailwind CSS, with PostgreSQL as the database.</li>
+                <li>Tested application functionality with IT staff before deployment.</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -191,73 +229,25 @@ function Home() {
       <section id="stack" className="content-section stack-section">
         <span className="stack-star stack-star-top-left">✦</span><span className="stack-star stack-star-top-right">✦</span><span className="stack-star stack-star-bottom-left">✦</span><span className="stack-star stack-star-bottom-right">✦</span>
         <h2 className="stack-title">STACK &amp; TOOLS</h2>
-        <div className="stack-docks">
-          {stackRows.map((row, rowIndex) => (
-            <div className="stack-dock" key={`stack-row-${rowIndex}`}>
-              {row.map(([Icon, label]) => (
-                <div className="stack-dock-item" key={label} title={label}>
-                  <Icon className="stack-dock-icon" aria-hidden="true" />
-                  <span>{label}</span>
-                </div>
-              ))}
+        <div className="stack-categories">
+          {stackCategories.map(([category, technologies]) => (
+            <div className="stack-category" key={category}>
+              <h3>{category}</h3>
+              <div className="stack-chips">
+                {technologies.map((technology) => <span className="stack-chip" key={technology}>{technology}</span>)}
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="flow" className="content-section flow-section">
-        <div className="flow-heading-row">
-          <h2 className="flow-title">FLOW</h2>
-          <p className="flow-description">My process for turning ideas into real and working solutions to amazing results.</p>
-        </div>
-        <div className="flow-grid">
-          <article className="flow-step flow-step-discover">
-            <div className="flow-step-content">
-              <h3>DISCOVER</h3>
-              <p>Understanding your challenge, your audience, and what success looks like for you.</p>
-            </div>
-            <div className="flow-progress">
-              <span>25%</span>
-              <i style={{ width: "25%" }} />
-            </div>
-          </article>
-          <article className="flow-step flow-step-design">
-            <div className="flow-step-content">
-              <h3>DESIGN</h3>
-              <p>Ideas take shape. We explore directions, test concepts, and refine until it feels right.</p>
-            </div>
-            <div className="flow-progress">
-              <span>50%</span>
-              <i style={{ width: "50%" }} />
-            </div>
-          </article>
-          <article className="flow-step flow-step-build">
-            <div className="flow-step-content">
-              <h3>BUILD</h3>
-              <p>Develop the final product with attention to every detail and technical precision.</p>
-            </div>
-            <div className="flow-progress">
-              <span>75%</span>
-              <i style={{ width: "75%" }} />
-            </div>
-          </article>
-          <article className="flow-step flow-step-launch">
-            <div className="flow-step-content">
-              <h3>LAUNCH</h3>
-              <p>Manage the launch, provide training if needed, and ensure a smooth transition.</p>
-            </div>
-            <div className="flow-progress">
-              <span>100%</span>
-              <i style={{ width: "100%" }} />
-            </div>
-          </article>
-        </div>
-        <div className="flow-marquee" aria-label="Start a project">
+      <section className="content-section flow-section flow-marquee-section">
+        <div className="flow-marquee" aria-label="Get in Touch">
           <div className="flow-marquee-track">
-            <span>START A PROJECT <b>✦</b></span>
-            <span>START A PROJECT <b>✦</b></span>
-            <span>START A PROJECT <b>✦</b></span>
-            <span>START A PROJECT <b>✦</b></span>
+            <span>GET IN TOUCH <b>✦</b></span>
+            <span>GET IN TOUCH <b>✦</b></span>
+            <span>GET IN TOUCH <b>✦</b></span>
+            <span>GET IN TOUCH <b>✦</b></span>
           </div>
         </div>
       </section>
@@ -269,12 +259,12 @@ function Home() {
           </div>
           <div className="site-footer-cta">
             <h2>LET'S WORK TOGETHER</h2>
-            <p>Have an idea in mind?<br />Let's turn it into something great.</p>
-            <a className="site-footer-button" href="https://mail.google.com/mail/?view=cm&fs=1&to=azidamilla@gmail.com" target="_blank" rel="noreferrer">LET'S TALK</a>
-            <nav className="site-footer-links" aria-label="Social media links">
-              <a href="https://www.linkedin.com/in/azidakautsar/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><LinkedinBoxFillIcon /></a>
-              <a href="https://github.com/qyuzies7" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub"><GithubFillIcon /></a>
-            </nav>
+            <p>Open to opportunities, collaborations, and interesting ideas. Let's connect!</p>
+            <div className="site-footer-buttons">
+              <a className="site-footer-button" href="https://mail.google.com/mail/?view=cm&fs=1&to=azidamilla@gmail.com" target="_blank" rel="noreferrer">Gmail</a>
+              <a className="site-footer-button" href="https://www.linkedin.com/in/azidakautsar/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a className="site-footer-button" href="https://github.com/qyuzies7" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
           </div>
         </div>
       </footer>

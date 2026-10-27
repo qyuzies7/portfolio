@@ -35,7 +35,7 @@ import "./ProjectDetail.css";
 const detailData = {
   "belle-vue": {
     title: "Belle Vue",
-    type: "Website",
+    type: "Web Application",
     role: "Fullstack Developer",
     duration: "8 Weeks",
     date: "2024",
@@ -81,7 +81,7 @@ const detailData = {
     title: "Celengin",
     type: "Mobile Application",
     role: "Fullstack Developer",
-    duration: "8 Weeks",
+    duration: "4 Weeks",
     date: "2025",
     description: "A student finance management application designed to help users track and manage their personal finances through a simple and organized dashboard.",
     problem: "Students need a simple way to record and monitor their finances while understanding their spending patterns over different periods.",
@@ -103,7 +103,7 @@ const detailData = {
     title: "Scan Carriage",
     type: "Web Application",
     role: "Fullstack Developer",
-    duration: "8 Weeks",
+    duration: "16 Weeks",
     date: "2026",
     description: "An enhanced carriage inspection system designed to streamline QR-based inspections, location validation, and maintenance reporting.",
     problem: "The existing inspection process needed better data capture, location validation, and a more efficient way to report carriage damage to maintenance technicians.",
@@ -124,7 +124,7 @@ const detailData = {
   },
   skydule: {
     title: "Skydule",
-    type: "Web Application",
+    type: "Mobile Application",
     role: "UI/UX Designer",
     duration: "8 Weeks",
     date: "2025",
@@ -254,15 +254,7 @@ function ProjectDetail({ projectKey, onClose }) {
 
           <div className="project-detail-content">
             <section className="project-detail-section">
-              <p className="project-detail-section-label">01 CONTEXT & PROBLEM</p>
-              <div className="project-detail-two-col">
-                <div><h3>Problem</h3><p>{project.problem}</p></div>
-                <div><h3>Target User</h3><p>{project.target}</p></div>
-              </div>
-            </section>
-
-            <section className="project-detail-section">
-              <p className="project-detail-section-label">02 KEY FEATURES</p>
+              <p className="project-detail-section-label">01 KEY FEATURES</p>
               <div className="project-detail-features">
                 {project.features.map((feature, index) => (
                   <div className="project-detail-feature" key={feature}>
@@ -274,7 +266,7 @@ function ProjectDetail({ projectKey, onClose }) {
             </section>
 
             <section className="project-detail-section project-detail-section-showcase">
-              <p className="project-detail-section-label">03 VISUAL SHOWCASE</p>
+              <p className="project-detail-section-label">02 VISUAL SHOWCASE</p>
               <div className={`project-detail-gallery project-detail-gallery-count-${project.gallery.length}`}>
                 {project.gallery.slice(0, 5).map((image, index) => (
                   <figure className="project-detail-gallery-item" key={`${project.title}-${index}`}>
@@ -290,14 +282,6 @@ function ProjectDetail({ projectKey, onClose }) {
                     </a>
                   </figure>
                 ))}
-              </div>
-            </section>
-
-            <section className="project-detail-section project-detail-highlight">
-              <p className="project-detail-section-label">04 PROCESS & CHALLENGE</p>
-              <div className="project-detail-two-col">
-                <div><h3>Technical / UX Highlight</h3><p>{project.highlight}</p></div>
-                <div><h3>Challenge & Solution</h3><p>{project.challenge}</p></div>
               </div>
             </section>
           </div>

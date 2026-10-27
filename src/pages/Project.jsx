@@ -78,6 +78,8 @@ function Projects() {
         </div>
       </section>
 
+
+
       <SiteFooter />
 
       {selectedProject && (
